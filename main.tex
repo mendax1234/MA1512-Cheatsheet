@@ -121,9 +121,25 @@
     }
 \end{center}
 
-\section{0.1 Introduction to Differential Equations}
+\section{01. Introduction to Differential Equations}
+\subsection{First Principles}
 \begin{enumerate}
-    \item 
+    \item (\textbf{Differential Equation}) Let $x$ be an independent variable and $y$ be a dependent variable. An equation that involves $x,y$ and \textbf{various derivatives of $y$} is called a \textbf{differential equation}. e.g. $(\frac{dy}{dx})^3+e^x+2=\frac{d^2y}{dx^2}$
+    \item (\textbf{Ordinary Differential Equation}) In general, an equation of the form $F(x,y,\frac{dy}{dx}, \cdots, \frac{d^ny}{dx^n})=0$ is an \textbf{ordinary differential equation}. It is called so because there is only \textbf{one} independent variable and only \textbf{ordinary derivatives (not partial derivatives)} are involved.
+    \item (\textbf{Order of a Differential Equation}) The \textbf{order} of a differential equation is the order of the \textbf{highest derivative} appearing in the differential equation. e.g. $dy/dx$ is first order derivative, $d^2y/dx^2$ is second order derivative.
+    \item (\textbf{General Solution}) A \textbf{general solution} to a differential equation is a family of infinitely many possible solutions, often involving \textbf{arbitrary constants} and they satisfy the differential equation when they are substituted into the differential equation.
+    \item (\textbf{Particular Solution}) With additional information such as \textit{initial condition} (where a differential equation is required to satisfy conditions on the dependent variable and its derivatives specified at one value of the independent variable), we can determine a \textbf{particular solution} that no longer involves arbitrary constants.
+    \item (\textbf{The method of seperation of variables}) A first-order differential equation of the form $\frac{dy}{dx}=F(x,y)$ is \textbf{seperable} if it can be written as $M(x)dx=N(y)dy$. To solve this, directly integrate both sides of the equation, we will get $\int N(y)dy=\int M(x)dx+C$, where $C$ is an arbitrary constant.
+    \begin{itemize}
+        \item (\textbf{The position of arbitrary constant $C$}) The arbitrary constant must be added immediately when you integrate the independent variable.
+        \item (\textbf{Notation}) Sometimes $dy/dx$ is written simply as $y'$.
+        \item (\textbf{Some useful substitution})
+        \begin{itemize}
+            \item If $y'=f(ax+by+c)$, we employ a \textit{linear change of variable}. Let $u=ax+by+c\rightarrow u'=a+by'$
+            \item If $y'=f(y/x)$, we let $y=xv$, and $y'=xv'+v$
+            Note that in both substitutions, we assume the function at the right side can be written as $f(\cdots)$, which is the soul in substitution.
+        \end{itemize}
+    \end{itemize}
 \end{enumerate}
 
 \end{multicols}
