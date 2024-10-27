@@ -140,24 +140,24 @@
         \item (\textbf{Some useful substitution})
         \begin{itemize}
             \item If $y'=f(ax+by+c)$, we employ a \textit{linear change of variable}. Let $u=ax+by+c\rightarrow u'=a+by'$
-            \item If $y'=f(y/x)$, we let $y=xv$, and $y'=xv'+v$
+            \item If $y'=f(y/x)$, we let $y=xv$, and $y'=xv'+v$ (Chain Rule)
         \end{itemize}
         Note that in both substitutions, we assume the function at the right side can be written as $f(\cdots)$, which is the soul in substitution.
     \end{itemize}
 \end{enumerate}
 \subsection{The Geometry of Differential Equations}
 \begin{enumerate}
-    \item (\textbf{Geometry of Differential Equation}) Note that $y'$ is the slope of curve $y=y(x)$ on the $x-y$ plane. Hence, solving differential equation $y'=f(x,y)$ means \textbf{finding curves whose slope at any given point $(x,y)$ is equal to $f(x,y)$}. If adding initial value condition $y(x_0)=y_0$, that means the curve must pass through $(x_0, y_0)$.
+    \item (\textbf{Geometry of First-Order Differential Equation}) Note that $y'$ is the slope of curve $y=y(x)$ on the $x-y$ plane. Hence, solving differential equation $y'=f(x,y)$ means \textbf{finding curves whose slope at any given point $(x,y)$ is equal to $f(x,y)$}. If adding initial value condition $y(x_0)=y_0$, that means the curve must pass through $(x_0, y_0)$.
     \item (\textbf{Using Direction/Slope Field to understand}) $\cdots$ \textbf{finding curves that are tangent to the short straight line at each point $(x,y)$}. If adding initial value condition $y(x_0)=y_0$, that means the curve must pass through $(x_0, y_0)$.
     \item (\textbf{Equilibrium Solution}) An \textbf{equilibrium solution} of a differential equation is a solution that is \textbf{constant} ($y(t)=\beta$); these correspond to \textbf{horizontal lines} on a direction field (can have multiple equilibrium solutions).
     \begin{itemize}
-        \item (\textbf{Stable Equilibrium Solution}) An equilibrium solution $y(t)=\beta$ is said to be \textbf{stable} if solutions about this about/near this equilibrium approach $\beta$ as $t\to \infty$.
+        \item (\textbf{Stable Equilibrium Solution}) An equilibrium solution $y(t)=\beta$ is said to be \textbf{stable} if solutions about/near this equilibrium approach $\beta$ as $t\to \infty$.
         \item (\textbf{Unstable Equilibrium Solution)} Otherwise, the equilibrium point is said to be \textbf{unstable}.
     \end{itemize}
     \item (\textbf{Methods to find equilibrium solution})
     \begin{itemize}
-        \item Judge the order of the diff eq and let all the dependent variables' derivatives to be 0. e.g. First order $\rightarrow y'=0$, Second order $\rightarrow y'=0 \text{and} y''=0$ 
-        \item Using basic inequality technique to solve and sketch out a sign diagram for $dy/dt$ with $y$ For example,\\
+        \item Judge the order of the diff eq and let all the dependent variables' derivatives to be 0. e.g. First order $\rightarrow y'=0$, Second order $\rightarrow y'=0 \text{ and } y''=0$ 
+        \item Use basic inequality technique to solve and sketch out a sign diagram for $dy/dt$ with $y$ For example,\\
         \centerline{\includegraphics[width=0.9\linewidth]{image/sign-diagram-for-dydt.png}}
         \item Draw the corresponding direction/slope field to judge the stability. For example,\\
         \centerline{\includegraphics[width=0.5\linewidth]{image/direction-field.png}}
@@ -166,12 +166,12 @@
 \subsection{Population Dynamics}
 \begin{enumerate}
     \item (\textbf{Malthusian model}) It assumes that the rate of change of a population is proportional to its present value. That is $dy/dt=ky\rightarrow y(t)=y_0e^{kt}$, where $y_0=y(0)$. This model suggests that a population would grow exponentially with \textbf{growth rate} k.
-    \item (\textbf{Verhulst model}) In Verhulst, our \textbf{growth rate} varies according to the present value $y$ of the population. The formula is given by $\frac{dy}{dt}=[k(1-\frac{y}{y_\infty})]y$, where $dy/dt$ is \textbf{rate of change} and $k(1-y/y_\infty$ is \textbf{growth rate}. This model assumes that a population grows \textbf{logistically}, such that given any initial population, $lim_{t\to \infty}y(t)=y_\infty$
-    \item (\textbf{Hunt rate}) Since hunt rate(E) is usually given in constant number per period, and in both models we have rate of change $dy/dt$, so usually we just minus the hunt rate (E) at the right side of our equation. e.g. If hunt rate is 100, $dy/dt=ky-100$
+    \item (\textbf{Verhulst model}) In Verhulst, our \textbf{growth rate} varies according to the present value $y$ of the population. The formula is given by $\frac{dy}{dt}=[k(1-\frac{y}{y_\infty})]y$, where $dy/dt$ is \textbf{rate of change} and $k(1-y/y_\infty)$ is \textbf{growth rate}. This model assumes that a population grows \textbf{logistically}, such that given any initial population, $lim_{t\to \infty}y(t)=y_\infty$
+    \item (\textbf{Hunt rate}) Since hunt rate(E) is usually given in constant number per period, and in both models we have rate of change $dy/dt$, so usually we just minus the hunt rate (E) at the right side of our equation. e.g. In Malthusian Model, if the hunt rate is 100, $dy/dt=ky-100$
     \item (\textbf{Some useful tips regarding Verhulst model})
     \begin{itemize}
-        \item Using basic algebra knowledge, we can see that when $y=y_\infty/2$, the rate of change $dy/dt$ will be maximum.
-        \item Given the initial condition $y(0)=y_0$, the solution for Verhulst Model is $y(t)=\frac{y_\infty}{1+(y_\infty/y_0-1)e^{-kt}}$
+        \item Regard the R.H.S as a quadratic equation, we can see that when $y=y_\infty/2$, the rate of change $dy/dt$ will be maximum.
+        \item Given the initial condition $y(0)=y_0$, the solution for Verhulst Model is $y(t)=\frac{y_\infty}{1+(\frac{y_\infty}{y_0}-1)e^{-kt}}$
     \end{itemize}
 \end{enumerate}
 
@@ -193,13 +193,13 @@
     \end{itemize}
 \end{enumerate}
 \subsection{Higher Order Differential Equation}
-In this part, we mainly focus on how to solve homogeneous linear differential equation with constant coefficients.
+In this part, we mainly focus on how to solve \textbf{homogeneous} linear differential equation with \textbf{constant coefficients}.
 \begin{enumerate}
     \item (\textbf{Homogeneous/Non-homogeneous}) A \textbf{linear differential equation with constant coefficients} is an equation of the form $a_ny^{(n)}+a_{n-1}y^{(n-1)}+\cdots+a_1y'+a_0y=f(x)$, where $a_i\in R$. When $f(x)=0$, the equation is said to be \textbf{homogeneous}; otherwise, it is said to be \textbf{non-homogeneous}.
     \item (\textbf{Methods to solve homogeneous diff eq with constant coefficients})
     \begin{itemize}
         \item Make a guess $y(x)=e^{\lambda x}$
-        \item Plug the guess into the diff eq and form a \textbf{characteristic eqaution}: $a_n\lambda^n+a_{n-1}\lambda^{n-1}+\cdots+a_1\lambda+a_0=0$. Solve for $\lambda$
+        \item Plug the guess into the diff eq and form a \textbf{characteristic equation}: $a_n\lambda^n+a_{n-1}\lambda^{n-1}+\cdots+a_1\lambda+a_0=0$. Solve for $\lambda$
         \begin{itemize}
             \item If $\lambda \in R$ is a real, distinct root, then a solution is given by $e^{\lambda x}$
             \item If $\lambda \in R$ is a repeated root with multiplicity $\gamma$ (repeats $\gamma$ times), then solutions are obtained by modifying our trial solution by a factor of $x$: $e^{\lambda x}, xe^{\lambda x}, x^2e^{\lambda x},\cdots, x^{r-1}e^{\lambda x}$
