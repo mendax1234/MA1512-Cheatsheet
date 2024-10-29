@@ -133,7 +133,7 @@
         \item (\textbf{Particular Solution}) With additional information such as \textit{initial condition} (where a differential equation is required to satisfy conditions on the dependent variable and its derivatives specified at one value of the independent variable), we can determine a \textbf{particular solution} that no longer involves arbitrary constants.
     \end{itemize}
     Note that the solution can be in \textbf{implicit form}.
-    \item (\textbf{The method of seperation of variables}) A first-order differential equation of the form $\frac{dy}{dx}=F(x,y)$ is \textbf{seperable} if it can be written as $M(x)dx=N(y)dy$. To solve this, directly integrate both sides of the equation, we will get $\int N(y)dy=\int M(x)dx+C$, where $C$ is an arbitrary constant.
+    \item (\textbf{The method of separation of variables}) A first-order differential equation of the form $\frac{dy}{dx}=F(x,y)$ is \textbf{separable} if it can be written as $M(x)dx=N(y)dy$. To solve this, directly integrate both sides of the equation, we will get $\int N(y)dy=\int M(x)dx+C$, where $C$ is an arbitrary constant.
     \begin{itemize}
         \item (\textbf{The position of arbitrary constant $C$}) The arbitrary constant must be added immediately when you integrate the independent variable.
         \item (\textbf{Notation}) Sometimes $dy/dx$ is written simply as $y'$.
@@ -209,6 +209,33 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         Note that for an real number order-N equation, the sum of the multiplicity of all its roots must be equal to N.
     \end{itemize}
     \item (\textbf{Superposition Principle}) Let $y_1(x)$ and $y_2(x)$ be solutions to a homogeneous linear differential equation $a_ny^{(n)}+a_{n-1}y^{(n-1)}+\cdots+a_1y'+a_0y=0$. Then a solution to this diff eq is also given by $y(x)=c_1y_1(x)+c_2y_2(x)$, for all $c_1, c_2 \in R$. (This is the general solution)
+\end{enumerate}
+
+\section{03. The Harmonic Oscillator}
+\subsection{Non-Homogeneous Linear Differential Equations}
+\begin{enumerate}
+    \item (\textbf{Rule of Thumb}) Consider the non-homogeneous second-order linear equation $y''+py'+qy=f(x)$, where $f(x)\neq 0$ and $p, q$ must be \textbf{constant} (cannot be function of $x$). The general solution to this differential equation is given by $y(x)=y_h(x)+y_p(x)$, where $y_h(x)$ is the \textbf{general solution} to the \textit{complementary homogeneous equation} $y''+py'+qy=0$, and $y_p(x)$ is any \textbf{particular solution}.
+    \item (\textbf{Methods to obtain the particular solution})
+    \begin{enumerate}
+        \item (\textbf{Method of undetermined coefficients}) When $f(x)$ involves simple functions, we can attempt to guess $y_p(x)$ using the rule below and leave $f(x)$ as it is at R.H.S (except when it involves complex numbers)
+        \begin{itemize}
+            \item If $f(x)=x^n$, let $y_p=A_1x^n+A_2x^{n-1}+\cdots+A_nx^1+C$, where $A_1, A_2,\cdots, A_n, C \in R$ are undetermined coefficients.
+            \item If $f(x)=e^{kx}$, let $y_p=Ae^{kx}$, where $A\in R$ is an undetermined coefficients.
+            \item If $f(x)=x\pm e^{kx}$, separate according to $\pm$, find $y_{p1}$ for $x$ and $y_{p2}$ for $e^{kx}$. Combine them, $y_p=y_{p1}+y_{p2}$.
+            \item If $f(x)=x\cdot e^{kx}$, suppose $y_{p1}$ is the guess for $x$ and $y_{p2}$ is the guess for $e^{kx}$. Time them, $y_p=(Ax+B)\cdot(Ce^{kx})$
+            \item If $f(x)$ is either $coskx=\Re\mathfrak{e}(e^{ikx})$ or $sinkx=\Im\mathfrak{m}(e^{ikx})$, let $y_p=Ae^{ikx}$, where $A\in C$ is an undetermined coefficient.
+            \item If $f(x)=x\pm sin(kx)$, separate according to $\pm$, find $y_{p1}$ for $x$ and $y_{p2}$ for $sin(kx)$. Combine them, $y_p=y_{p1}+y_{p2}$.
+            \item  If $f(x)=x\cdot sin(kx)$, suppose $y_{p1}$ is the guess for $x$ and $y_{p2}$ is the guess for $sin(kx)$. Time them, $y_p=(Ax+B)\cdot Ce^{ikx}$. After solving for $A,B,C$, get the $\Im\mathfrak{m}$ part as the particular solution.
+            \item If $f(x)=C$, where $C$ is a constant, let $y_p=C$, where $C\in R$ is the undetermined coefficient.
+            \item (\textbf{Important}) If any term of the trial solution is already a solution of the complementary equation or you cannot solve for the undetermined coefficients, \textbf{multiply your trial solution by $x$}. If still cannot, multiply it by $x^2\cdots$.
+        \end{itemize}
+        The steps to solve for $y_p$ after making the guess of $y_p$
+        \begin{itemize}
+            \item If $f(x)$ \textbf{does not contain trigonometric functions}. Leave R.H.S as it is, calculate the derivative of your guess $y_p$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficients.
+            \item If $f(x)$ \textbf{contains trigonometric functions}. Change the trigonometric function part at R.H.S ($sinkx, coskx$) to the the guess $Ae^{ikx}$ ($A$ can be any undetermined coefficient). Leave the remaining R.H.S as it is. Calculate the derivative of your guess $y_p$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficients. Then substitute the undetermined coefficients in, and if the original $f(x)$ contains $sin(kx)$ only, then find the $\Im\mathfrak{m}$ part after the substitution. If the original $f(x)$ contains $cos(kx)$ only, then find the $\Re\mathfrak{e}$ part after the substitution.
+        \end{itemize}
+        \item (\textbf{Method of variation of parameters}) Given a solution $y_h(x)$ to the complementary equation, we can perform a \textbf{variation of parameters} to obtain a particular solution. $y_h=c_1y_1(x)+c_2y_2(x)\rightarrow y_p(x)=u(x)y_1(x)+v(x)y_2(x)$, where the functions $u(x)=-\int \frac{y_2f}{y_1y'_2-y'_1y_2}dx$, $v(x)=\int \frac{y_1f}{y_1y'_2-y'_1y_2}dx$.
+    \end{enumerate}
 \end{enumerate}
 \end{multicols}
 
