@@ -274,8 +274,37 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \end{itemize}
     \end{itemize}
 \end{enumerate}
-\end{multicols}
 
+\section{04. The Laplace Transform}
+\subsection{Basic Properties}
+\begin{enumerate}
+    \item (\textbf{Definition}) The \textbf{Laplace transform of $f(t)$} is defined by $\mathcal{L}[f(t)]=F(s)=\lim_{h\to \infty}\int_0^he^{-st}\cdot f(t)dt$, and $f(t)$ is the \textbf{inverse} Laplace transform of $F(s)$: $f(t)=\mathcal{L}^{-1}[F(s)]$. (Note that $s$ is a new intermediate variable). \newline
+    \centerline{    
+    \begin{tabular}{|c|c|}
+        \hline
+        $f(t)=\mathcal{L}^{-1}[F(s)]$ & $F(s)=\mathcal{L}[f(t)]$
+        \\\hline
+        $1$ & $\frac{1}{s}$
+        \\\hline
+        $e^{at}$ & $\frac{1}{s-a}$
+        \\\hline
+        $\cos at$ & $\frac{s}{s^2+a^2}$
+        \\\hline
+        $\sin at$ & $\frac{a}{s^2+a^2}$
+        \\\hline
+        $t^n,n\in N$ & $\frac{n!}{s^{n+1}}$
+        \\\hline
+        $\delta(t-c)$ & $e^{-cs}$
+        \\\hline
+    \end{tabular}
+    }
+    \item (\textbf{Linearity}) Given functions $f(t)$ and $g(t)$, $\mathcal{L}[af(t)+bg(t)]=a\mathcal{L}[f(t)]+b\mathcal{L}[g(t)]$ for all $a,b\in R$.
+    \item (\textbf{Differentiation Property}) $\mathcal{L}[t\cdot f(t)]=-\frac{d}{ds}F(s)$. General form $\mathcal{L}[t^n\cdot f(t)]=(-1)^nF^{(n)}(s)$
+    \item (\textbf{First Shifting Theorem}) $\mathcal{L}[e^{at}\cdot f(t)]=F(s-a)$
+    \item (\textbf{Derivatives}) $\mathcal{y'}=s\mathcal{L}[y]-y(0)$, $\mathcal{L}[y'']=s^2\mathcal{L}[y]-sy(0)-y'(0)$. General form is $\mathcal{L}[f^{(n)}(t)]=s^n\mathcal{L}[f(t)]-s^{n-1}f(0)-\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0)$
+\end{enumerate}
+
+\end{multicols}
 % Dividing Line
 \hrulefill \\
 
