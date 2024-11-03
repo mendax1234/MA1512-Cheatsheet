@@ -276,7 +276,6 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
 \end{enumerate}
 
 \section{04. The Laplace Transform}
-\subsection{Basic Properties}
 \begin{enumerate}
     \item (\textbf{Definition}) The \textbf{Laplace transform of $f(t)$} is defined by $\mathcal{L}[f(t)]=F(s)=\lim_{h\to \infty}\int_0^he^{-st}\cdot f(t)dt$, and $f(t)$ is the \textbf{inverse} Laplace transform of $F(s)$: $f(t)=\mathcal{L}^{-1}[F(s)]$. (Note that $s$ is a new intermediate variable). \newline
     \centerline{    
@@ -298,10 +297,20 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \\\hline
     \end{tabular}
     }
-    \item (\textbf{Linearity}) Given functions $f(t)$ and $g(t)$, $\mathcal{L}[af(t)+bg(t)]=a\mathcal{L}[f(t)]+b\mathcal{L}[g(t)]$ for all $a,b\in R$.
-    \item (\textbf{Differentiation Property}) $\mathcal{L}[t\cdot f(t)]=-\frac{d}{ds}F(s)$. General form $\mathcal{L}[t^n\cdot f(t)]=(-1)^nF^{(n)}(s)$
-    \item (\textbf{First Shifting Theorem}) $\mathcal{L}[e^{at}\cdot f(t)]=F(s-a)$
-    \item (\textbf{Derivatives}) $\mathcal{y'}=s\mathcal{L}[y]-y(0)$, $\mathcal{L}[y'']=s^2\mathcal{L}[y]-sy(0)-y'(0)$. General form is $\mathcal{L}[f^{(n)}(t)]=s^n\mathcal{L}[f(t)]-s^{n-1}f(0)-\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0)$
+    \item (\textbf{Linearity}) Given functions $f(t)$ and $g(t)$, $\mathcal{L}[af(t)+bg(t)]=a\mathcal{L}[f(t)]+b\mathcal{L}[g(t)]$ for all $a,b\in R$. Note that $\mathcal{L}^{-1}$ also has \textbf{Linearity}.
+    \item (\textbf{Differentiation Property}) $\mathcal{L}[t\cdot f(t)]=-\frac{d}{ds}F(s)$. General form $\mathcal{L}[t^n\cdot f(t)]=(-1)^nF^{(n)}(s)$, where $F(s)=\mathcal{L}[f(t)]$
+    \item (\textbf{First Shifting Theorem}) $\mathcal{L}[e^{at}\cdot f(t)]=F(s-a)$, where $F(s)=\mathcal{L}[f(t)]$
+    \item (\textbf{Derivatives}) $\mathcal{L}[y']=s\mathcal{L}[y]-y(0)$, $\mathcal{L}[y'']=s^2\mathcal{L}[y]-sy(0)-y'(0)$. General form is $\mathcal{L}[f^{(n)}(t)]=s^n\mathcal{L}[f(t)]-s^{n-1}f(0)-\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0)$
+    \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$
+\end{enumerate}
+\subsection{Step Functions and the Unit Impulse}
+\begin{enumerate}
+    \item (\textbf{Use step fucntion to represent the range})
+    \begin{itemize}
+        \item $1-u(t-1)$ can represent $0<t<1$
+        \item $u(t-1)-u(t-\frac{\pi}{2})$ can represent $1<t<\pi/2$
+        \item $u(t-\frac{\pi}{2})$ can represent $t>\pi/2$
+    \end{itemize}
 \end{enumerate}
 
 \end{multicols}
