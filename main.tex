@@ -158,9 +158,9 @@
     \begin{itemize}
         \item Judge the order of the diff eq and let all the dependent variables' derivatives to be 0. e.g. First order $\rightarrow y'=0$, Second order $\rightarrow y'=0 \text{ and } y''=0$ 
         \item Use basic inequality technique to solve and sketch out a sign diagram for $dy/dt$ with $y$ For example,\\
-        \centerline{\includegraphics[width=0.9\linewidth]{image/sign-diagram-for-dydt.png}}
+        % \centerline{\includegraphics[width=0.9\linewidth]{image/sign-diagram-for-dydt.png}}
         \item Draw the corresponding direction/slope field to judge the stability. For example,\\
-        \centerline{\includegraphics[width=0.5\linewidth]{image/direction-field.png}}
+        % \centerline{\includegraphics[width=0.5\linewidth]{image/direction-field.png}}
     \end{itemize}
 \end{enumerate}
 \subsection{Population Dynamics}
@@ -260,9 +260,9 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
             \item (\textbf{Underdamped}) (Shown as Curve C) It occurs when $b^2 < 4mk$ (but is still large). It means the system makes several swings before coming to rest. It has two real roots $\lambda_1, \lambda_2 \in R$ and $x=c_1e^{\lambda_1 t}+c_2e^{\lambda_2 t}$.
             \item (\textbf{Critical damping}) (Shown as Curve B) It occurs when $b^2=4mk$. In this case, the equilibrium is reached in the shortest time. It has a \textbf{repeated} real root $\lambda\in R$ and $x=c_1e^{\lambda t}+c_2te^{\lambda t}$.
         \end{itemize}
-        \centerline{\includegraphics[width=0.4\linewidth]{image/damped-harmonic-motion.png}}
+        % \centerline{\includegraphics[width=0.4\linewidth]{image/damped-harmonic-motion.png}}
     \end{itemize}
-    \item (\textbf{Forced Oscillation; Resonance}) When an oscillating system has an external force applied to it that has its own \textbf{particular frequency}, we have a \textbf{forced oscillation}.
+  \item (\textbf{Forced Oscillation: Resonance}) When an oscillating system has an external force applied to it that has its own \textbf{particular frequency}, we have a \textbf{forced oscillation}.
     \begin{itemize}
         \item (\textbf{Its differential equation}) Suppose our $F_{\text{ext}}=F_0\cos\omega t$ and consider the damping force also, we have $\Ddot{x}+\frac{b}{m}\Dot{x}+\omega_0^2x=F_0\cos\omega t$.
         \item (\textbf{Its solution}) Given the initial condition $t=0, x=A$, our general solution is $x=A\cdot e^{-\gamma t}\cdot\cos\omega_0t+A_0\cdot\sin\omega t+\phi$, where $\gamma=\frac{b}{2m}, A_0=\frac{F_0}{m\sqrt{(\omega^2-\omega_0^2)^2+b^2\omega^2/m^2}}, \phi=tan^{-1}\frac{\omega_0^2-\omega^2}{b\omega/m}$.
@@ -295,22 +295,73 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \\\hline
         $\delta(t-c)$ & $e^{-cs}$
         \\\hline
+        $f(t)\delta(t-c)$ & $e^{-cs}f(c)$
+        \\\hline
+        $u(t-c)$ & $\frac{1}{s}e^{-cs}$
+        \\\hline
+        $e^{at}u(t-c)$ & $\frac{e^{-c(s-a)}}{s-a}$
+        \\\hline
     \end{tabular}
     }
     \item (\textbf{Linearity}) Given functions $f(t)$ and $g(t)$, $\mathcal{L}[af(t)+bg(t)]=a\mathcal{L}[f(t)]+b\mathcal{L}[g(t)]$ for all $a,b\in R$. Note that $\mathcal{L}^{-1}$ also has \textbf{Linearity}.
-    \item (\textbf{Differentiation Property}) $\mathcal{L}[t\cdot f(t)]=-\frac{d}{ds}F(s)$. General form $\mathcal{L}[t^n\cdot f(t)]=(-1)^nF^{(n)}(s)$, where $F(s)=\mathcal{L}[f(t)]$
+    \item (\textbf{Differentiation Property}) $\mathcal{L}[t\cdot f(t)]=-\frac{d}{ds}F(s)$ or $-F'(s)$. General form $\mathcal{L}[t^n\cdot f(t)]=(-1)^nF^{(n)}(s)$, where $F(s)=\mathcal{L}[f(t)]$
     \item (\textbf{First Shifting Theorem}) $\mathcal{L}[e^{at}\cdot f(t)]=F(s-a)$, where $F(s)=\mathcal{L}[f(t)]$
     \item (\textbf{Derivatives}) $\mathcal{L}[y']=s\mathcal{L}[y]-y(0)$, $\mathcal{L}[y'']=s^2\mathcal{L}[y]-sy(0)-y'(0)$. General form is $\mathcal{L}[f^{(n)}(t)]=s^n\mathcal{L}[f(t)]-s^{n-1}f(0)-\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0)$
-    \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$
+        \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$.
+    \begin{itemize}
+        \item (\textbf{Forward}) Find $u(t-c)$, then use substitution $v=t-c$ to change the function into $f(t-c)\text{ or }f(v)$, then change $v$ to $t$, then find the Laplace Transform of $f(t)$.
+        \item (\textbf{Reverse}) Use the $F(s) \text{ or } \mathcal{L}[f(t)]$ to find $f(t)$ first. Then, change $t$ to $t-c$.
+    \end{itemize}
+    \item (\textbf{The method of partial fraction decomposition})
+    \begin{itemize}
+        \item If the denominator is \textbf{not repeated}, the degree of the \textbf{numerator} should be \textbf{1 less than} the degree of the \textbf{denominator}. e.g. $\frac{1}{s(ms^2+k)}=\frac{A}{s}+\frac{Bs+C}{ms^2+k}$.
+        \item If the denominator is \textbf{repeated} (a.k.a degree is bigger than 1), start from degree of 1, sum to the current degree. e.g. $\frac{1}{x^2(x^2+1)^2}=\frac{A}{x}+\frac{B}{x^2}+\frac{Cx+D}{x^2+1}+\frac{Ex+F}{(x^2+1)^2}$.
+    \end{itemize}
+    \item (\textbf{Tips})
+    \begin{itemize}
+        \item To use the above properties, the first step is to find your $y\text{ or }f(t)$, this is your base function. Then find the Laplace Transform of your base function. Then use the properties.
+        \item (\textbf{The Inverse Laplace Transform}) e.g. Evaluate $\mathcal{L}^{-1}[\frac{1+e^{-3s}}{s^4}]$. $F(s)=\frac{1}{s^4}+e^{-3s}\frac{1}{s^4}$. Note that $\mathcal{L}^{-1}[\frac{1}{s^n}]=\frac{t^{n-1}}{(n-1)!}, \mathcal{L}^{-1}[e^{-as}F(s)]=f(t-a)u(t-a)$. Hence, $f(t)=\mathcal{L}^{-1}[F(s)]=\frac{t^3}{3!}+\frac{(t-3)^3}{3!}u(t-3)$
+        \item (\textbf{Convolution Integral}) If $\mathcal{L}^{-1}[F(s)]=f(t)$ and $\mathcal{L}^{-1}[G(s)]=g(t)$, then $\mathcal{L}^{-1}[F(s)G(s)]=\int_0^tf(u)g(t-u)du=\int_0^tg(u)f(t-u)du=(f*g)(t)$
+    \end{itemize}
 \end{enumerate}
 \subsection{Step Functions and the Unit Impulse}
 \begin{enumerate}
-    \item (\textbf{Use step fucntion to represent the range})
+    \item (\textbf{Use step function to represent the range})
     \begin{itemize}
-        \item $1-u(t-1)$ can represent $0<t<1$
+        \item $1-u(t-1)$ can represent $t<1$, sometimes it will be $0<t<1$ (depends on the question)
         \item $u(t-1)-u(t-\frac{\pi}{2})$ can represent $1<t<\pi/2$
         \item $u(t-\frac{\pi}{2})$ can represent $t>\pi/2$
     \end{itemize}
+    \item (\textbf{Method to get the Laplace Transform of Unit Step Functions}) The idea is to separate the integrals
+    e.g. $\mathcal{L}[u(t-c)]=\int_0^\infty e^{-st}u(t-c)dt=\int_0^ae^{-st}u(t-c)dt+\int_a^\infty e^{-st}u(t-c)dt=\int_0^ae^{-st}\cdot0dt+\int_a^\infty e^{-st}\cdot1dt=-\frac{1}{s}e^{-st}|_{t=a}^\infty=\frac{1}{s}e^{-as}$
+    \item (\textbf{Dirac Delta/Unit Impulse Function}) Defined when Impulse $I=1$ and as $\epsilon\to\infty$, the dirac delta function is often used to represent a \textbf{sudden} change in the question and the magnitude/Impulse is 1.
+\end{enumerate}
+
+\section{05. Partial Differential Equations}
+\begin{enumerate}
+    \item (\textbf{Definition}) A \textbf{partial differential equation} (PDE) is an equation involving one or more \textbf{partial derivatives} of a function that depends on \textbf{two or more variables}.
+    \item (\textbf{Linearity and Homogeneity})
+    \begin{itemize}
+        \item A PDE is \textbf{linear} if it is of the \textbf{first degree} in the \textbf{unknown function and its derivative}. But the \textbf{independent variables} can be of higher degrees. e.g. $u$ is an unknown function of $x,y$, $u\cdot u'=0$ is \textbf{not linear}, $x^2u=0$ is $linear$
+        \item A PDE is \textbf{homogeneous} if each of the terms contains either or one of its partial derivatives. (Or, 0 is one of the solutions for the equation)
+    \end{itemize}
+    \item (\textbf{Solve PDE - Method of separation of variables})
+    \begin{enumerate}
+        \item Suppose that a solution is given by $u(x,y)=A(x)B(y)$
+        \item Rewrite the equation in $A$ and $B$, e.g. $u=AB,u_x=A'B,u_y=AB',u_{xx}=A''B\cdots$
+        \item Separate the variables: $f(x, A, A',\cdots)=g(y, B, B', \cdots)$ and let both sides equal to a \textit{separation constant} $k$. Thus, we have two ODEs.
+        \item Solve these two ODEs using separation of variables in ODE. Get $A=\cdots x, B=\cdots y$. Then combine these two solutions by $u(x,y)=AB$
+    \end{enumerate}
+    \item (\textbf{Superposition Principle}) Let $u_1(x,y)$ and $u_2(x,y)$ be solutions of a \textbf{homogeneous linear PDE}. Then, a solution is also given by $u(x,y)=c_1u_1(x,y)+c_2u_2(x,y)$, for any $c_1,c_2\in R$
+    \item (\textbf{Solving Tips})
+    \begin{itemize}
+        \item When using the method of separation of variables, if the PDE becomes an "ODE" (either $A$ or $B$ is eliminated), then after solving the remaining variable, change the constants $c_1,c_2$ to the one that includes the variable that is treated as constants in this PDE, e.g. $f(y), g(y)$
+    \end{itemize}
+\end{enumerate}
+\subsection{The Heat Equation}
+\begin{enumerate}
+    \item (\textbf{Definition}) The dispersion of heat on a metal rod of length $l$ is described by the \textbf{heat equation} $u_t=c^2u_{xx}$, $0<x<l,t>0$. $c^2$ is the \textit{thermal diffusivity of the metal}, and the \textbf{solution} $u(x,t)$ describes the temperature of the rod at a given point $x$ and time $t$. Assuming that at $x=0$ and $x=l$, the rod is insulated, so we have \textit{boundary conditions} $u(0,t)=0,u(l,t)=0$. If the initial distribution of heat is given by the function $f(x)$, then we have the initial condition $u(x,0)=f(x)$
+    \item (\textbf{Solution}) The general solution to the heat equation is $u(x,t)=\beta_ne^{-c^2n^2\pi^2t/l^2}sin(\frac{n\pi}{l}x)$, where $c^2,l$ are usually given by question. $n,\beta_n$ are constants that can be derived using the \textit{initial condition},. And by superposition principle, we can divide the initial condition into each $\sin$ function, find its corresponding $n,\beta_n$ and combine them together into one particular solution using superposition principle again.
 \end{enumerate}
 
 \end{multicols}
