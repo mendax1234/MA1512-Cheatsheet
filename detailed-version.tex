@@ -144,6 +144,12 @@
         \end{itemize}
         Note that in both substitutions, we assume the function at the right side can be written as $f(\cdots)$, which is the soul in substitution.
     \end{itemize}
+    \item (\textbf{Classic Examples})
+    \begin{itemize}
+        \item (\textbf{Half-Life}) The typical scenario for half-life is \textit{exponential decay}, in which we have $\frac{dx}{dt}=-kx,k>0$ and since its solution is $x=x_0e^{-kt}$. We can get the formula to determine the \textit{decay rate $k$} given that we know the half-life $\tau$, so, it will be $\frac{x_0}{2}=x_0e^{-kt}\rightarrow k=\frac{ln2}{\tau}$
+        \item Remember that $\int\frac{2u+4}{u^2+4u+5}=\ln(u^2+4u+5)$.
+        \item For $y'\cdot y''=2$, to use separation of variables, use substitution $u=y'\rightarrow u\cdot u'=2$ Then solve it accordingly.
+    \end{itemize}
 \end{enumerate}
 \subsection{The Geometry of Differential Equations}
 \begin{enumerate}
@@ -156,22 +162,23 @@
     \end{itemize}
     \item (\textbf{Methods to find equilibrium solution})
     \begin{itemize}
-        \item Judge the order of the diff eq and let all the dependent variables' derivatives to be 0. e.g. First order $\rightarrow y'=0$, Second order $\rightarrow y'=0 \text{ and } y''=0$ 
+        \item Judge the order of the diff eq and let all the dependent variables' derivatives to be 0. e.g. First order $\rightarrow y'=0$, Second order $\rightarrow y'=0 \text{ and } y''=0$. e.g. $y'=-10y(20-y)(1-\frac{1}{30}y)\rightarrow 0=-10y(20-y)(1-\frac{1}{30}y)$
         \item Use basic inequality technique to solve and sketch out a sign diagram for $dy/dt$ with $y$ For example,\\
-        % \centerline{\includegraphics[width=0.9\linewidth]{image/sign-diagram-for-dydt.png}}
+        \centerline{\includegraphics[width=0.9\linewidth]{image/sign-diagram-for-dydt.png}}
         \item Draw the corresponding direction/slope field to judge the stability. For example,\\
-        % \centerline{\includegraphics[width=0.5\linewidth]{image/direction-field.png}}
+        \centerline{\includegraphics[width=0.5\linewidth]{image/direction-field.png}}
     \end{itemize}
 \end{enumerate}
 \subsection{Population Dynamics}
 \begin{enumerate}
-    \item (\textbf{Malthusian model}) It assumes that the rate of change of a population is proportional to its present value. That is $dy/dt=ky\rightarrow y(t)=y_0e^{kt}$, where $y_0=y(0)$. This model suggests that a population would grow exponentially with \textbf{growth rate} k.
+    \item (\textbf{Malthusian model}) It assumes that the rate of change of a population is proportional to its present value. That is $dy/dt=ky\rightarrow y(t)=y_0e^{kt}$, where $y_0=y(0)$. This model suggests that a population would grow exponentially with \textbf{growth rate} k. (\textbf{Note that in Malthusan model, it is $y=y_0\cdot e^{kt}$, however, in half-life model, it is $x=x_0\cdot e^{-kt}$})
     \item (\textbf{Verhulst model}) In Verhulst, our \textbf{growth rate} varies according to the present value $y$ of the population. The formula is given by $\frac{dy}{dt}=[k(1-\frac{y}{y_\infty})]y$, where $dy/dt$ is \textbf{rate of change} and $k(1-y/y_\infty)$ is \textbf{growth rate}. This model assumes that a population grows \textbf{logistically}, such that given any initial population, $lim_{t\to \infty}y(t)=y_\infty$
     \item (\textbf{Hunt rate}) Since hunt rate(E) is usually given in constant number per period, and in both models we have rate of change $dy/dt$, so usually we just minus the hunt rate (E) at the right side of our equation. e.g. In Malthusian Model, if the hunt rate is 100, $dy/dt=ky-100$
     \item (\textbf{Some useful tips regarding Verhulst model})
     \begin{itemize}
         \item Regard the R.H.S as a quadratic equation, we can see that when $y=y_\infty/2$, the rate of change $dy/dt$ will be maximum.
         \item Given the initial condition $y(0)=y_0$, the solution for Verhulst Model is $y(t)=\frac{y_\infty}{1+(\frac{y_\infty}{y_0}-1)e^{-kt}}$
+        \item In problems regarding Verhulst model, we are often interested in \textbf{finding the diff eq's equilibrium solutions}. Use the equilibrium solutions and slope field, we can determine whether the population will disappear or towards a constant.
     \end{itemize}
 \end{enumerate}
 
@@ -260,7 +267,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
             \item (\textbf{Underdamped}) (Shown as Curve C) It occurs when $b^2 < 4mk$ (but is still large). It means the system makes several swings before coming to rest. It has two real roots $\lambda_1, \lambda_2 \in R$ and $x=c_1e^{\lambda_1 t}+c_2e^{\lambda_2 t}$.
             \item (\textbf{Critical damping}) (Shown as Curve B) It occurs when $b^2=4mk$. In this case, the equilibrium is reached in the shortest time. It has a \textbf{repeated} real root $\lambda\in R$ and $x=c_1e^{\lambda t}+c_2te^{\lambda t}$.
         \end{itemize}
-        % \centerline{\includegraphics[width=0.4\linewidth]{image/damped-harmonic-motion.png}}
+        \centerline{\includegraphics[width=0.4\linewidth]{image/damped-harmonic-motion.png}}
     \end{itemize}
   \item (\textbf{Forced Oscillation: Resonance}) When an oscillating system has an external force applied to it that has its own \textbf{particular frequency}, we have a \textbf{forced oscillation}.
     \begin{itemize}
