@@ -224,11 +224,12 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
 \begin{enumerate}
     \item (\textbf{Rule of Thumb}) Consider the non-homogeneous second-order linear equation $y''+py'+qy=f(x)$, where $f(x)\neq 0$ and $p, q$ must be \textbf{constant} (cannot be function of $x$). The general solution to this differential equation is given by $y(x)=y_h(x)+y_p(x)$, where $y_h(x)$ is the \textbf{general solution} to the \textit{complementary homogeneous equation} $y''+py'+qy=0$, and $y_p(x)$ is any \textbf{particular solution}.
     \item (\textbf{Methods to obtain the particular solution})
+    Usually, the $y_p$ is a determined/exact function.
     \begin{enumerate}
         \item (\textbf{Method of undetermined coefficients}) When $f(x)$ involves simple functions, we can attempt to guess $y_p(x)$ using the rule below and leave $f(x)$ as it is at R.H.S (except when it involves complex numbers)
         \begin{itemize}
             \item If $f(x)=x^n$, let $y_p=A_1x^n+A_2x^{n-1}+\cdots+A_nx^1+C$, where $A_1, A_2,\cdots, A_n, C \in R$ are undetermined coefficients.
-            \item If $f(x)=e^{kx}$, let $y_p=Ae^{kx}$, where $A\in R$ is an undetermined coefficients.
+            \item If $f(x)=e^{kx}$, let $y_p=Ae^{kx}$, where $A\in R$ is an undetermined coefficients. $k$ can be real/complex number.
             \item If $f(x)=x\pm e^{kx}$, separate according to $\pm$, find $y_{p1}$ for $x$ and $y_{p2}$ for $e^{kx}$. Combine them, $y_p=y_{p1}+y_{p2}$.
             \item If $f(x)=x\cdot e^{kx}$, suppose $y_{p1}$ is the guess for $x$ and $y_{p2}$ is the guess for $e^{kx}$. Time them, $y_p=(Ax+B)\cdot(Ce^{kx})$
             \item If $f(x)$ is either $coskx=\Re\mathfrak{e}(e^{ikx})$ or $sinkx=\Im\mathfrak{m}(e^{ikx})$, let $y_p=Ae^{ikx}$, where $A\in C$ is an undetermined coefficient.
@@ -240,7 +241,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         The steps to solve for $y_p$ after making the guess of $y_p$
         \begin{itemize}
             \item If $f(x)$ \textbf{does not contain trigonometric functions}. Leave R.H.S as it is, calculate the derivative of your guess $y_p$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficients.
-            \item If $f(x)$ \textbf{contains trigonometric functions}. Change the trigonometric function part at R.H.S ($sinkx, coskx$) to the the guess $Ae^{ikx}$ ($A$ can be any undetermined coefficient). Leave the remaining R.H.S as it is. Calculate the derivative of your guess $y_p$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficients. Then substitute the undetermined coefficients in, and if the original $f(x)$ contains $sin(kx)$ only, then find the $\Im\mathfrak{m}$ part after the substitution. If the original $f(x)$ contains $cos(kx)$ only, then find the $\Re\mathfrak{e}$ part after the substitution.
+            \item If $f(x)$ \textbf{contains trigonometric functions}. Change the trigonometric function part at R.H.S ($sinkx, coskx$) to $e^{ikx}$. Leave the remaining R.H.S as it is (Don't forget the coefficients). Calculate the derivative of your guess $y_p=Ae^{ikx}$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficient. Then substitute the undetermined coefficient (usually it is a complex number) in, change $e^{ikx}$ to $\cos kx+i\sin kx$. If the original $f(x)$ contains $sin(kx)$ only, then find the $\Im\mathfrak{m}$ part of $y_p$. If the original $f(x)$ contains $cos(kx)$ only, then find the $\Re\mathfrak{e}$ part of $y_p$.
         \end{itemize}
         \item (\textbf{Method of variation of parameters}) Given a solution $y_h(x)$ to the complementary equation, we can perform a \textbf{variation of parameters} to obtain a particular solution. $y_h=c_1y_1(x)+c_2y_2(x)\rightarrow y_p(x)=u(x)y_1(x)+v(x)y_2(x)$, where the functions $u(x)=-\int \frac{y_2f}{y_1y'_2-y'_1y_2}dx$, $v(x)=\int \frac{y_1f}{y_1y'_2-y'_1y_2}dx$.
     \end{enumerate}
