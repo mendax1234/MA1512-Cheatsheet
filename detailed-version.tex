@@ -230,13 +230,13 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \begin{itemize}
             \item If $f(x)=x^n$, let $y_p=A_1x^n+A_2x^{n-1}+\cdots+A_nx^1+C$, where $A_1, A_2,\cdots, A_n, C \in R$ are undetermined coefficients.
             \item If $f(x)=e^{kx}$, let $y_p=Ae^{kx}$, where $A\in R$ is an undetermined coefficients. $k$ can be real/complex number.
-            \item If $f(x)=x\pm e^{kx}$, separate according to $\pm$, find $y_{p1}$ for $x$ and $y_{p2}$ for $e^{kx}$. Combine them, $y_p=y_{p1}+y_{p2}$.
+            \item If $f(x)=x\pm e^{kx}$, separate according to $\pm$, find $y_{p1}$ for $x$ (we first try $Ax+B$ for $x$, if it doesn't work, multiply by $x$ and try $Ax^2+Bx$ now) and $y_{p2}$ for $e^{kx}$. Combine them, $y_p=y_{p1}+y_{p2}$.
             \item If $f(x)=x\cdot e^{kx}$, suppose $y_{p1}$ is the guess for $x$ and $y_{p2}$ is the guess for $e^{kx}$. Time them, $y_p=(Ax+B)\cdot e^{kx}$
             \item If $f(x)$ is either $coskx=\Re\mathfrak{e}(e^{ikx})$ or $sinkx=\Im\mathfrak{m}(e^{ikx})$, let $y_p=Ae^{ikx}$, where $A\in C$ is an undetermined coefficient.
             \item If $f(x)=x\pm sin(kx)$, separate according to $\pm$, find $y_{p1}$ for $x$ and $y_{p2}$ for $sin(kx)$. Combine them, $y_p=y_{p1}+y_{p2}$.
             \item  If $f(x)=x\cdot sin(kx)$, suppose $y_{p1}$ is the guess for $x$ and $y_{p2}$ is the guess for $sin(kx)$. Time them, $y_p=(Ax+B)\cdot e^{ikx}$. After solving for $A,B$, get the $\Im\mathfrak{m}$ part as the particular solution.
             \item If $f(x)=C$, where $C$ is a constant, let $y_p=C$, where $C\in R$ is the undetermined coefficient.
-            \item (\textbf{Important}) If any term of the trial solution is already a solution of the complementary equation or you cannot solve for the undetermined coefficients, \textbf{multiply your trial solution by $x$}. If still cannot, multiply it by $x^2\cdots$.
+            \item (\textbf{Important}) If any term of the trial solution is already a solution of the complementary equation or you cannot solve for the undetermined coefficients, \textbf{multiply the non-constant part of your trial solution by $x$}. If still cannot, multiply it by $x^2\cdots$.
         \end{itemize}
         \textbf{The steps to solve for $y_p$ after making the guess of $y_p$}
         \begin{itemize}
@@ -246,6 +246,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \textbf{Tips}
         \begin{itemize}
             \item When calculating $y_p',y_p''$ after making the guess of $y_p$, extract the factor and combine together, then do the further derivation.
+            \item When encounter higher degree e.g. $\sin^2x,\cos^2x$, use the double angle formula to decrease the degree to 1. Then make the guess.
         \end{itemize}
         \item (\textbf{Method of variation of parameters}) Given a solution $y_h(x)$ to the complementary equation, we can perform a \textbf{variation of parameters} to obtain a particular solution. $y_h=c_1y_1(x)+c_2y_2(x)\rightarrow y_p(x)=u(x)y_1(x)+v(x)y_2(x)$, where the functions $u(x)=-\int \frac{y_2f}{y_1y'_2-y'_1y_2}dx$, $v(x)=\int \frac{y_1f}{y_1y'_2-y'_1y_2}dx$, where $f$ is the $f(x)$ at the R.H.S of the initial diff eq.
     \end{enumerate}
@@ -255,12 +256,12 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
     \item (\textbf{Simple Harmonic Motion}) Any oscillating system for which the \textbf{net restoring force} is directly proportional to the \textbf{negative} of the \textbf{displacement} (e.g. $F=-kx$) is said to exhibit \textbf{Simple Harmonic Motion (SHM)}, such a system is called a \textbf{Simple Harmonic Oscillator (SHO)}.
     \begin{itemize}
         \item (\textbf{Its differential equation}) $m\Ddot{x}=-kx \equiv \Ddot{x}=-\frac{k}{m}x$ or $\Ddot{x}=-\omega^2x \equiv \Ddot{x}+\omega^2x=0$, where $\omega=\sqrt{\frac{k}{m}}$ and $\omega$ denotes the \textbf{angular frequency} of the oscillation, which is to differ from $f$, which is equal to $\omega / 2\pi$.
-        \item (\textbf{Its solution}) $x=A\cos(\omega t+\phi)$, where $A$ and $\phi$ are two arbitrary constants that can be determined by \textbf{initial conditions}.
+        \item (\textbf{Its solution}) $x=R\cos(\omega t-\phi)$, where $R$ and $\phi$ are two arbitrary constants that can be determined by \textbf{initial conditions}.
         \item (\textbf{Some useful tips}) 
         \begin{itemize}
-            \item (Speed) $v=-\omega A\sin(\omega t+\phi)$
-            \item (Acceleration) $a=-\omega^2A\cos(\omega t+\phi)$
-            \item (Use initial conditions) The soul is to read the given conditions, and determine when $t=0$, whether it is $x=0/v=0/a=0$, then substitute $t$ into the equation to solve for $\phi$. Usually $A$ is given directly.
+            \item (Speed) $v=-\omega R\sin(\omega t-\phi)$
+            \item (Acceleration) $a=-\omega^2R\cos(\omega t-\phi)$
+            \item (Use initial conditions) The soul is to read the given conditions, and determine when $t=0$, whether it is $x=0/v=0/a=0$, then substitute $t$ into the equation to solve for $\phi$. e.g. if the oscillator starts at rest at equilibrium, that means at $t=0$, $x=0,v=0$ Usually $R$ is given directly.
         \end{itemize}
     \end{itemize}
     \item (\textbf{Damped Harmonic Motion}) To damp means to diminish, restrain or extinguish. Consider a \textbf{damped oscillator}, in which the damping force can be simply approximated to be proportional to the speed ($F=-bv)$, where $b$ is a constant).
@@ -269,7 +270,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \item (\textbf{Its solution}) It depends on the constant $b$. Trivially, $x=Ae^{-\gamma t}\cos(\omega't+\phi)$. Use the initial condition $t=0, x=A$, our solution becomes $x=Ae^{-\gamma t}\cos\omega't$, where $\gamma=\frac{b}{2m}, \omega'=\sqrt{\frac{k}{m}-\frac{b^2}{4m^2}}$
         \item (\textbf{Heavily damped systems}) This is occurred when constant $b$ is large.
         \begin{itemize}
-            \item (\textbf{Overdamped}) (Shown as Curve A) It occurs when $b^2\gg 4mk$, when our $\omega'$ becomes imaginary. It means the damping is so large and it takes a long time to reach equilibrium. It has complex conjugate roots $\lambda=\alpha+i\beta \in C$ and $x=c_1e^{\alpha t}\cos\beta t+c_2e^{\alpha t}\sin\beta t$
+            \item (\textbf{Overdamped}) (Shown as Curve A) It occurs when $b^2\gg 4mk$, when our $\omega'$ becomes imaginary. It means the damping is so large and it takes a long time to reach equilibrium. It has complex conjugate roots $\lambda=\alpha+i\beta \in C$ and $x=c_1e^{\alpha t}\cos\beta t+c_2e^{\alpha t}\sin\beta t$ (Still oscillate)
             \item (\textbf{Underdamped}) (Shown as Curve C) It occurs when $b^2 < 4mk$ (but is still large). It means the system makes several swings before coming to rest. It has two real roots $\lambda_1, \lambda_2 \in R$ and $x=c_1e^{\lambda_1 t}+c_2e^{\lambda_2 t}$.
             \item (\textbf{Critical damping}) (Shown as Curve B) It occurs when $b^2=4mk$. In this case, the equilibrium is reached in the shortest time. It has a \textbf{repeated} real root $\lambda\in R$ and $x=c_1e^{\lambda t}+c_2te^{\lambda t}$.
         \end{itemize}
@@ -281,7 +282,8 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \item (\textbf{Its solution}) Given the initial condition $t=0, x=A$, our general solution is $x=A\cdot e^{-\gamma t}\cdot\cos\omega_0t+A_0\cdot\sin\omega t+\phi$, where $\gamma=\frac{b}{2m}, A_0=\frac{F_0}{m\sqrt{(\omega^2-\omega_0^2)^2+b^2\omega^2/m^2}}, \phi=tan^{-1}\frac{\omega_0^2-\omega^2}{b\omega/m}$.
         \item (\textbf{Some tips})
         \begin{itemize}
-            \item When $\omega = \omega_0$, \textbf{resonance} occurs and if damping force is not considered and initial condition is not given, when $\omega = \omega_0$, then our solution becomes $x=A\cos(\omega t+\phi)+\frac{F}{2\omega}t\sin\omega t$
+            \item When solving oscillation problems, the first thing is to decide whether it is \textbf{Simple Harmonic Motion}, or \textbf{Damped Harmonic Motion} or \textbf{Forced Oscillation}. Then find the suitable equation to plug in.
+            \item When $\omega = \omega_0$, \textbf{resonance} occurs and if damping force is not considered and initial condition is not given, when $\omega = \omega_0$, then our solution becomes $x=A\cos(\omega t+\phi)+\frac{F}{2\omega}t\sin\omega t$. Otherwise, the oscillator will be \textbf{stable} (means never tend to infinity). Given that the initial condition is \textit{the oscillator starts at rest at equilibrium}, then $A=0$ ($x(0)=0, \dot{x}(0)=0$, a.k.a we can kick out of the first term.
             \item Notice that in our general solution, as our $t$ increases, the first term approaches 0 because of $Ae^{-\gamma t}$.
             \item The natural frequency of the system $\omega_0$ is called the \textbf{resonance frequency}.
         \end{itemize}
