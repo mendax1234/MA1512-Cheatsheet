@@ -322,14 +322,14 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
     \item (\textbf{Differentiation Property}) $\mathcal{L}[t\cdot f(t)]=-\frac{d}{ds}F(s)$ or $-F'(s)$. General form $\mathcal{L}[t^n\cdot f(t)]=(-1)^nF^{(n)}(s)$, where $F(s)=\mathcal{L}[f(t)]$
     \item (\textbf{First Shifting Theorem}) $\mathcal{L}[e^{at}\cdot f(t)]=F(s-a)$, where $F(s)=\mathcal{L}[f(t)]$
     \item (\textbf{Derivatives}) $\mathcal{L}[y']=s\mathcal{L}[y]-y(0)$, $\mathcal{L}[y'']=s^2\mathcal{L}[y]-sy(0)-y'(0)$. General form is $\mathcal{L}[f^{(n)}(t)]=s^n\mathcal{L}[f(t)]-s^{n-1}f(0)-\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0)$
-        \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$.
+        \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$. (Sometimes the later one will be faster!)
     \begin{itemize}
-        \item (\textbf{Forward}) Find $u(t-c)$, then use substitution $v=t-c$ to change the function into $f(t-c)\text{ or }f(v)$, then change $v$ to $t$, then find the Laplace Transform of $f(t)$.
-        \item (\textbf{Reverse}) Use the $F(s) \text{ or } \mathcal{L}[f(t)]$ to find $f(t)$ first. Then, change $t$ to $t-c$.
+        \item (\textbf{Forward}) Find $u(t-c)$, then use $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$, then $t\rightarrow t+c$. Then use linearity and other properties to find the corresponding Laplace Transform.
+        \item (\textbf{Reverse}) Firstly, use the term $e^{-sc}$ to find $c$. Then use the $F(s) \text{ or } \mathcal{L}[f(t)]$ to find $f(t)$. Then, change $t$ to $t-c$.
     \end{itemize}
     \item (\textbf{The method of partial fraction decomposition})
     \begin{itemize}
-        \item If the denominator is \textbf{not repeated}, the degree of the \textbf{numerator} should be \textbf{1 less than} the degree of the \textbf{denominator}. e.g. $\frac{1}{s(ms^2+k)}=\frac{A}{s}+\frac{Bs+C}{ms^2+k}$.
+        \item If the denominator is \textbf{not repeated}, the degree of the \textbf{numerator} should be \textbf{1 less than} the degree of the \textbf{denominator}. e.g. $\frac{1}{s(ms^2+k)}=\frac{A}{s}+\frac{Bs+C}{ms^2+k}$, $\frac{2s^3+4}{s^4+2s^3}=\frac{As^2+Bs+C}{s^3}+\frac{D}{s}$
         \item If the denominator is \textbf{repeated} (a.k.a degree is bigger than 1), start from degree of 1, sum to the current degree. e.g. $\frac{1}{x^2(x^2+1)^2}=\frac{A}{x}+\frac{B}{x^2}+\frac{Cx+D}{x^2+1}+\frac{Ex+F}{(x^2+1)^2}$.
     \end{itemize}
     \item (\textbf{Tips})
@@ -348,7 +348,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \item $u(t-\frac{\pi}{2})$ can represent $t>\pi/2$
     \end{itemize}
     \item (\textbf{Method to get the Laplace Transform of Unit Step Functions}) The idea is to separate the integrals
-    e.g. $\mathcal{L}[u(t-c)]=\int_0^\infty e^{-st}u(t-c)dt=\int_0^ae^{-st}u(t-c)dt+\int_a^\infty e^{-st}u(t-c)dt=\int_0^ae^{-st}\cdot0dt+\int_a^\infty e^{-st}\cdot1dt=-\frac{1}{s}e^{-st}|_{t=a}^\infty=\frac{1}{s}e^{-as}$
+    e.g. $\mathcal{L}[u(t-c)]=\int_0^\infty e^{-st}u(t-c)dt=\int_0^ce^{-st}u(t-c)dt+\int_c^\infty e^{-st}u(t-c)dt=\int_0^ce^{-st}\cdot0dt+\int_c^\infty e^{-st}\cdot1dt=-\frac{1}{s}e^{-st}|_{t=c}^\infty=\frac{1}{s}e^{-cs}$
     \item (\textbf{Dirac Delta/Unit Impulse Function}) Defined when Impulse $I=1$ and as $\epsilon\to\infty$, the dirac delta function is often used to represent a \textbf{sudden} change in the question and the magnitude/Impulse is 1.
 \end{enumerate}
 
