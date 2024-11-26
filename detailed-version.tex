@@ -283,7 +283,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \item (\textbf{Some tips})
         \begin{itemize}
             \item When solving oscillation problems, the first thing is to decide whether it is \textbf{Simple Harmonic Motion}, or \textbf{Damped Harmonic Motion} or \textbf{Forced Oscillation}. Then find the suitable equation to plug in.
-            \item When $\omega = \omega_0$, \textbf{resonance} occurs and if damping force is not considered and initial condition is not given, when $\omega = \omega_0$, then our solution becomes $x=A\cos(\omega t+\phi)+\frac{F}{2\omega}t\sin\omega t$. Otherwise, the oscillator will be \textbf{stable} (means never tend to infinity). Given that the initial condition is \textit{the oscillator starts at rest at equilibrium}, then $A=0$ ($x(0)=0), \dot{x}(0)=0$, a.k.a we can kick out of the first term and now $x=\frac{F}{2\omega}t\sin\omega t$
+            \item When $\omega = \omega_0$, \textbf{resonance} occurs and if damping force is not considered and initial condition is not given, when $\omega = \omega_0$, then our solution becomes $x=A\cos(\omega t+\phi)+\frac{F}{2\omega}t\sin\omega t$. Otherwise, the oscillator will be \textbf{stable} (means never tend to infinity). Given that the initial condition is \textit{the oscillator starts at rest at equilibrium}, then $A=0$ ($x(0)=0), \dot{x}(0)=0$), a.k.a we can kick out of the first term and now $x=\frac{F}{2\omega}t\sin\omega t$
             \item Notice that in our general solution, as our $t$ increases, the first term approaches 0 because of $Ae^{-\gamma t}$.
             \item The natural frequency of the system $\omega_0$ is called the \textbf{resonance frequency}.
         \end{itemize}
@@ -325,7 +325,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$. (Sometimes the later one will be faster!)
     \begin{itemize}
         \item (\textbf{Forward}) Find $u(t-c)$, then use $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$, then $t\rightarrow t+c$. Then use linearity and other properties to find the corresponding Laplace Transform.
-        \item (\textbf{Reverse}) Firstly, use the term $e^{-sc}$ to find $c$. Then use the $F(s) \text{ or } \mathcal{L}[f(t)]$ to find $f(t)$. Then, change $t$ to $t-c$.
+        \item (\textbf{Reverse}) Use $\mathcal{L}^{-1}[e^{-cs}F(s)]=f(t-c)u(t-c)$ Firstly, use the term $e^{-sc}$ to find $c$. Then use the $F(s) \text{ or } \mathcal{L}[f(t)]$ to find $f(t)$. Then, change $t$ to $t-c$.
     \end{itemize}
     \item (\textbf{The method of partial fraction decomposition})
     \begin{itemize}
@@ -337,6 +337,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \item To use the above properties, the first step is to find your $y\text{ or }f(t)$, this is your base function. Then find the Laplace Transform of your base function. Then use the properties.
         \item (\textbf{The Inverse Laplace Transform}) e.g. Evaluate $\mathcal{L}^{-1}[\frac{1+e^{-3s}}{s^4}]$. $F(s)=\frac{1}{s^4}+e^{-3s}\frac{1}{s^4}$. Note that $\mathcal{L}^{-1}[\frac{1}{s^n}]=\frac{t^{n-1}}{(n-1)!}, \mathcal{L}^{-1}[e^{-as}F(s)]=f(t-a)u(t-a)$. Hence, $f(t)=\mathcal{L}^{-1}[F(s)]=\frac{t^3}{3!}+\frac{(t-3)^3}{3!}u(t-3)$
         \item (\textbf{Convolution Integral}) If $\mathcal{L}^{-1}[F(s)]=f(t)$ and $\mathcal{L}^{-1}[G(s)]=g(t)$, then $\mathcal{L}^{-1}[F(s)G(s)]=\int_0^tf(u)g(t-u)du=\int_0^tg(u)f(t-u)du=(f*g)(t)$
+        \item (\textbf{Differentiate the unit step function}) For a unit step function $u(t-c)$, if differentiate w.r.t $c$, we treat $u(t-c)$ as a constant.
     \end{itemize}
 \end{enumerate}
 \subsection{Step Functions and the Unit Impulse}
@@ -350,6 +351,10 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
     \item (\textbf{Method to get the Laplace Transform of Unit Step Functions}) The idea is to separate the integrals
     e.g. $\mathcal{L}[u(t-c)]=\int_0^\infty e^{-st}u(t-c)dt=\int_0^ce^{-st}u(t-c)dt+\int_c^\infty e^{-st}u(t-c)dt=\int_0^ce^{-st}\cdot0dt+\int_c^\infty e^{-st}\cdot1dt=-\frac{1}{s}e^{-st}|_{t=c}^\infty=\frac{1}{s}e^{-cs}$
     \item (\textbf{Dirac Delta/Unit Impulse Function}) Defined when Impulse $I=1$ and as $\epsilon\to\infty$, the dirac delta function is often used to represent a \textbf{sudden} change in the question and the magnitude/Impulse is 1.
+    \item (\textbf{Tips})
+    \begin{itemize}
+        \item The dirac delta function are defined to be an instantaneous amount of change, but in problems, it should be considered as \textbf{a spike rate of change}!
+    \end{itemize}
 \end{enumerate}
 
 \section{05. Partial Differential Equations}
