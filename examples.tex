@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Classic Examples for Differential Equations}
+\author{Wenbo Zhu}
+\date{November 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction to Differential Equations}
+\subsection{The method of Separation of variables}
+\begin{enumerate}
+    \item (\textbf{Linear change of variable}) Solve the differential equation
+    \begin{equation}
+        \frac{dy}{dx}=\frac{1-2y-4x}{1+y+2x}
+    \end{equation}
+    \textbf{Solution.} Observe that we may rewrite the differential equation as
+    \begin{equation*}
+        \frac{dy}{dx}=\frac{1-2(y+2x)}{1+(y+2x)}
+    \end{equation*}
+    We employ a \textit{linear change of variable}: let
+    \begin{equation*}
+        u=y+2x\Rightarrow \frac{du}{dx}=\frac{dy}{dx}+2 \text{ or, }u'=y'+2
+    \end{equation*}
+    Thus, our differential equation becomes
+    \begin{equation*}
+        \frac{du}{dx}=\frac{1-2u}{1+u}+2\Rightarrow\frac{du}{dx}=\frac{3}{1+u} \text{ or, }u'=\frac{3}{1+u}
+    \end{equation*}
+    This is now a separable equation!
+    \begin{equation*}
+        \int(1+u)~du=\int3~dx\Rightarrow u+\frac{u^2}{2}=3x+c
+    \end{equation*}
+    Since $u=y+2x$, we thus have the general solution\footnote{This is in \textit{implicit form}. The general solution can be in implicit form.}
+    \begin{equation*}
+        y+2x+\frac{(y+2x)^2}{2}=3x+c
+    \end{equation*}
+    \newpage
+    \item (\textbf{Fraction change of variable}) Solve the differential equation
+    \begin{equation}
+        2xy\frac{dy}{dx}-y^2+x^2=0
+    \end{equation}
+    \textbf{Solution.} Observe that we may rewrite the differential equation as
+    \begin{equation*}
+        \frac{dy}{dx}=\frac{y^2-x^2}{2xy}=\frac{1}{2}(\frac{y}{x}-\frac{x}{y}).
+    \end{equation*}
+    Consider the substitution $u=\frac{y}{x}$, or $y=xu$, such that $y'=u+xu'$\footnote{This is done by \textit{product rule}}. Substituting this into the differential equation yields
+    \begin{equation*}
+        u+x\frac{du}{dx}=\frac{1}{2}(u-\frac{1}{u})\Rightarrow x\frac{du}{dx}=-\frac{1}{2}(u+\frac{1}{u})
+    \end{equation*}
+    Observe that this is now a separable differential equation!
+    \begin{equation*}
+        \int\frac{2u}{u^2+1}~du=\int-\frac{1}{x}~dx\Rightarrow \ln(u^2+1)=-\ln x+c
+    \end{equation*}
+    Since $u=\frac{y}{x}$, we thus obtain the general solution\footnote{Here the constant $A=e^c$, which will be determined by the initial condition}
+    \begin{equation*}
+        ln(\frac{y^2}{x}+x)=c\Rightarrow\frac{y^2}{x}+x=A.
+    \end{equation*}
+    \item (\textbf{Special substitution}) Solve the following differential equation with given initial conditions
+    \begin{equation}
+        y'y''=2\text{, with }y(0)=1\text{ and }y'(0)=2.
+    \end{equation}
+    \textbf{Solution.} To reduce the order of the differential equation, let $u=y'$ and we will have $u'=y''$. Substituting this into the differential equation yields
+    \begin{equation*}
+        u\frac{du}{dx}=2
+    \end{equation*}
+    Observe that this is now a separable differential equation!
+    \begin{equation*}
+        \int u~du=\int 2~dx \Rightarrow \frac{u^2}{2}=2x+c
+    \end{equation*}
+    Since $u=y'$, the substitution yields
+    \begin{equation*}
+        (y')^2=4x+2c
+    \end{equation*}
+    Since $y'(0)=2$, then $2c=4$. We can now directly integrate our expression for $y'$ to find $y$
+    \begin{equation*}
+        y'=(4x+4)^{\frac{1}{2}}=2(x+1)^{\frac{1}{2}}\Rightarrow y=\frac{4}{3}(x+1)^{\frac{3}{2}}+D
+    \end{equation*}
+    Since $y(0)=1$, after substitution, we can get
+    \begin{equation*}
+        1=\frac{4}{3}(0+1)^{\frac{3}{2}}+D\Rightarrow D=-\frac{1}{3}
+    \end{equation*}
+    Therefore, the solution to the initial value problem is given by
+    \begin{equation*}
+        y=\frac{4}{3}(x+1)^{\frac{3}{2}}-\frac{1}{3}
+    \end{equation*}
+\end{enumerate}
+\subsection{Population Model}
+\begin{enumerate}
+    \item (\textbf{Application of Equilibrium Solutions}) The population of a certain species of bugs behaves according to the Verhulst (logistic) model, and the formula is given below:
+    \begin{equation}
+        \frac{dy}{dt}=[k(1-\frac{y}{y_\infty}]y
+    \end{equation}
+    where $k=-15, y_{\infty}\approx375.75$. Now, what is the maximum number of bugs you can put to death per day without causing the population to die out? \newline
+    \textbf{Solution.} We may now modify the Verhulst equation to account for the harvesting of bugs. Suppose $E$ bugs are put to death per day. Then
+    \begin{equation*}
+        \frac{dy}{dt}=[k(1-\frac{y}{y_{\infty}})]y-E=-\frac{k}{y_\infty}y^2+ky-E
+    \end{equation*}
+    where $k=1.5$ and $y_\infty\approx375.75$. Now, the equilibrium solutions are
+    \begin{equation*}
+        y=\frac{-k\pm\sqrt{k^2-\frac{4kE}{y_\infty}}}{-\frac{2k}{y_\infty}}=\frac{1.5\mp\sqrt{2.25-\frac{6E}{375.75}}}{\frac{3}{375.75}}
+    \end{equation*}
+    The population will die out when $E$ is chosen such that there are no equilibria. In this case, $\frac{dy}{dt}$ will be \textbf{negative} and any solution $y(t)$ will always be decreasing. This occurs when,
+    \begin{equation*}
+        k^2-\frac{4kE}{y_\infty}<0\Rightarrow E>\frac{375.75}{6}\times2.25=140.91\dots
+    \end{equation*}
+    Hence, we can only kill as much as 140 bugs per day.
+\end{enumerate}
+\end{document}

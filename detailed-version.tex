@@ -256,34 +256,34 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
     \item (\textbf{Simple Harmonic Motion}) Any oscillating system for which the \textbf{net restoring force} is directly proportional to the \textbf{negative} of the \textbf{displacement} (e.g. $F=-kx$) is said to exhibit \textbf{Simple Harmonic Motion (SHM)}, such a system is called a \textbf{Simple Harmonic Oscillator (SHO)}.
     \begin{itemize}
         \item (\textbf{Its differential equation}) $m\Ddot{x}=-kx \equiv \Ddot{x}=-\frac{k}{m}x$ or $\Ddot{x}=-\omega^2x \equiv \Ddot{x}+\omega^2x=0$, where $\omega=\sqrt{\frac{k}{m}}$ and $\omega$ denotes the \textbf{angular frequency} of the oscillation, which is to differ from $f$, which is equal to $\omega / 2\pi$.
-        \item (\textbf{Its solution}) $x=R\cos(\omega t-\phi)$, where $R$ and $\phi$ are two arbitrary constants that can be determined by \textbf{initial conditions}.
+        \item (\textbf{Its solution}) $x=R\cos(\omega t-\varphi)$, where $R$ and $\varphi$ are two arbitrary constants that can be determined by \textbf{initial conditions}.
         \item (\textbf{Some useful tips}) 
         \begin{itemize}
-            \item (Speed) $v=-\omega R\sin(\omega t-\phi)$
-            \item (Acceleration) $a=-\omega^2R\cos(\omega t-\phi)$
-            \item (Use initial conditions) The soul is to read the given conditions, and determine when $t=0$, whether it is $x=0/v=0/a=0$, then substitute $t$ into the equation to solve for $\phi$. e.g. if the oscillator starts at rest at equilibrium, that means at $t=0$, $x=0,v=0$ Usually $R$ is given directly.
+            \item (Speed) $v=-\omega R\sin(\omega t-\varphi)$
+            \item (Acceleration) $a=-\omega^2R\cos(\omega t-\varphi)$
+            \item (Use initial conditions) The soul is to read the given conditions, and determine when $t=0$, whether it is $x=0/v=0/a=0$, then substitute $t$ into the equation to solve for $\varphi$. e.g. if the oscillator starts at rest at equilibrium, that means at $t=0$, $x=0,v=0$. Usually $R$ is given directly.
         \end{itemize}
     \end{itemize}
-    \item (\textbf{Damped Harmonic Motion}) To damp means to diminish, restrain or extinguish. Consider a \textbf{damped oscillator}, in which the damping force can be simply approximated to be proportional to the speed ($F=-bv)$, where $b$ is a constant).
+    \item (\textbf{Damped Harmonic Motion}) To damp means to diminish, restrain or extinguish. Consider a \textbf{damped oscillator}, in which the damping force can be simply approximated to be proportional to the speed ($F=-bv)$, where $b$ is a constant.
     \begin{itemize}
-        \item (\textbf{Its differential equation}) $m\Ddot{x}+b\Dot{x}+kx=0 \equiv \Ddot{x}+\frac{b}{m}\Dot{x}+\frac{k}{m}x=0$.
-        \item (\textbf{Its solution}) It depends on the constant $b$. Trivially, $x=Ae^{-\gamma t}\cos(\omega't+\phi)$. Use the initial condition $t=0, x=A$, our solution becomes $x=Ae^{-\gamma t}\cos\omega't$, where $\gamma=\frac{b}{2m}, \omega'=\sqrt{\frac{k}{m}-\frac{b^2}{4m^2}}$
-        \item (\textbf{Heavily damped systems}) This is occurred when constant $b$ is large.
+        \item (\textbf{Its differential equation}) $m\ddot{x}+b\dot{x}+kx=0 \equiv \ddot{x}+\frac{b}{m}\dot{x}+\frac{k}{m}x=0$. Or if we denote $\omega=\sqrt{\frac{k}{m}}, \gamma=\frac{b}{2m}$, our differential equation becomes $\ddot{x}=-\omega^2x-2\gamma x\equiv \ddot{x}+2\gamma \dot{x}+\omega^2x$
+        \item (\textbf{Its solution}) It depends on the constant $b$. When $b$ is small (underdamped), $x=Ae^{-\gamma t}\cos(\omega't-\varphi)$. Use the initial condition $t=0, x=A$, our solution becomes $x=Ae^{-\gamma t}\cos\omega't$, where $\gamma=\frac{b}{2m}, \omega'=\sqrt{\frac{k}{m}-\frac{b^2}{4m^2}}$ (This solution is used to give us a intuitive feeling about how the amplitude and angular frequency changes when $b$ changes)
+        \item (\textbf{Different amounts of damping}) By using the characteristic equation method to solve the differential equation $\lambda^2+2\gamma\lambda+\omega^2=0$, with solutions $\lambda=-\gamma\pm\sqrt{\gamma^2-\omega^2}$. The nature of the object's motion now depends on the value of the discriminant $\Delta=\gamma^2-\omega^2$
         \begin{itemize}
-            \item (\textbf{Overdamped}) (Shown as Curve A) It occurs when $b^2\gg 4mk$, when our $\omega'$ becomes imaginary. It means the damping is so large and it takes a long time to reach equilibrium. It has complex conjugate roots $\lambda=\alpha+i\beta \in C$ and $x=c_1e^{\alpha t}\cos\beta t+c_2e^{\alpha t}\sin\beta t$ (Still oscillate)
-            \item (\textbf{Underdamped}) (Shown as Curve C) It occurs when $b^2 < 4mk$ (but is still large). It means the system makes several swings before coming to rest. It has two real roots $\lambda_1, \lambda_2 \in R$ and $x=c_1e^{\lambda_1 t}+c_2e^{\lambda_2 t}$.
-            \item (\textbf{Critical damping}) (Shown as Curve B) It occurs when $b^2=4mk$. In this case, the equilibrium is reached in the shortest time. It has a \textbf{repeated} real root $\lambda\in R$ and $x=c_1e^{\lambda t}+c_2te^{\lambda t}$.
+            \item (\textbf{Overdamped}) (Shown as Curve C) It occurs when $\gamma^2>\omega^2\text{ or, }b^2\gg 4mk$, when our $\omega'$ becomes imaginary. It means the damping is so large and it takes a long time to reach equilibrium. It has two real roots $\lambda_1, \lambda_2 \in R$ and $x=c_1e^{\lambda_1 t}+c_2e^{\lambda_2 t}$. 
+            \item (\textbf{Underdamped}) (Shown as Curve A) It occurs when $\gamma^2<\omega^2\text{ or, }b^2 < 4mk$. It means the system makes several swings before coming to rest. It has two complex conjugate roots $\lambda=\alpha+i\beta \in C$ and $x=c_1e^{\alpha t}\cos\beta t+c_2e^{\alpha t}\sin\beta t$ (Still oscillate)
+            \item (\textbf{Critical damping}) (Shown as Curve B) It occurs when $\gamma^2=\omega^2\text{ or, }b^2=4mk$. In this case, the equilibrium is reached in the shortest time. It has a \textbf{repeated} real root $\lambda\in R$ and $x=c_1e^{\lambda t}+c_2te^{\lambda t}$.
         \end{itemize}
         \centerline{\includegraphics[width=0.4\linewidth]{image/damped-harmonic-motion.png}}
     \end{itemize}
   \item (\textbf{Forced Oscillation: Resonance}) When an oscillating system has an external force applied to it that has its own \textbf{particular frequency}, we have a \textbf{forced oscillation}.
     \begin{itemize}
         \item (\textbf{Its differential equation}) Suppose our $F_{\text{ext}}=F_0\cos\omega t$ and consider the damping force also, we have $\Ddot{x}+\frac{b}{m}\Dot{x}+\omega_0^2x=F_0\cos\omega t$.
-        \item (\textbf{Its solution}) Given the initial condition $t=0, x=A$, our general solution is $x=A\cdot e^{-\gamma t}\cdot\cos\omega_0t+A_0\cdot\sin\omega t+\phi$, where $\gamma=\frac{b}{2m}, A_0=\frac{F_0}{m\sqrt{(\omega^2-\omega_0^2)^2+b^2\omega^2/m^2}}, \phi=tan^{-1}\frac{\omega_0^2-\omega^2}{b\omega/m}$.
+        \item (\textbf{Its solution}) Given the initial condition $t=0, x=A$, our general solution is $x=A\cdot e^{-\gamma t}\cdot\cos\omega_0t+A_0\cdot\sin(\omega t+\varphi)$, where $\gamma=\frac{b}{2m}, A_0=\frac{F_0}{m\sqrt{(\omega^2-\omega_0^2)^2+b^2\omega^2/m^2}}, \varphi=\arctan\frac{\omega_0^2-\omega^2}{b\omega/m}$.
         \item (\textbf{Some tips})
         \begin{itemize}
             \item When solving oscillation problems, the first thing is to decide whether it is \textbf{Simple Harmonic Motion}, or \textbf{Damped Harmonic Motion} or \textbf{Forced Oscillation}. Then find the suitable equation to plug in.
-            \item When $\omega = \omega_0$, \textbf{resonance} occurs and if damping force is not considered and initial condition is not given, when $\omega = \omega_0$, then our solution becomes $x=A\cos(\omega t+\phi)+\frac{F}{2\omega}t\sin\omega t$. Otherwise, the oscillator will be \textbf{stable} (means never tend to infinity). Given that the initial condition is \textit{the oscillator starts at rest at equilibrium}, then $A=0$ ($x(0)=0), \dot{x}(0)=0$), a.k.a we can kick out of the first term and now $x=\frac{F}{2\omega}t\sin\omega t$
+            \item When $\omega = \omega_0$, \textbf{resonance} occurs and if damping force is not considered and initial condition is not given, when $\omega = \omega_0$, then our solution becomes $x=A\cos(\omega t+\varphi)+\frac{F}{2\omega}t\sin\omega t$. Otherwise, the oscillator will be \textbf{stable} (means never tend to infinity). Given that the initial condition is \textit{the oscillator starts at rest at equilibrium}, then $A=0$ ($x(0)=0), \dot{x}(0)=0$), a.k.a we can kick out of the first term and now $x=\frac{F}{2\omega}t\sin\omega t$
             \item Notice that in our general solution, as our $t$ increases, the first term approaches 0 because of $Ae^{-\gamma t}$.
             \item The natural frequency of the system $\omega_0$ is called the \textbf{resonance frequency}.
         \end{itemize}
@@ -324,8 +324,8 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
     \item (\textbf{Derivatives}) $\mathcal{L}[y']=s\mathcal{L}[y]-y(0)$, $\mathcal{L}[y'']=s^2\mathcal{L}[y]-sy(0)-y'(0)$. General form is $\mathcal{L}[f^{(n)}(t)]=s^n\mathcal{L}[f(t)]-s^{n-1}f(0)-\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0)$
         \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$. (Sometimes the later one will be faster!)
     \begin{itemize}
-        \item (\textbf{Forward}) Find $u(t-c)$, then use $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$, then $t\rightarrow t+c$. Then use linearity and other properties to find the corresponding Laplace Transform.
-        \item (\textbf{Reverse}) Use $\mathcal{L}^{-1}[e^{-cs}F(s)]=f(t-c)u(t-c)$ Firstly, use the term $e^{-sc}$ to find $c$. Then use the $F(s) \text{ or } \mathcal{L}[f(t)]$ to find $f(t)$. Then, change $t$ to $t-c$.
+        \item (\textbf{Forward}) Find $u(t-c)$, then use $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$, then use linearity and other properties to find the corresponding Laplace Transform $\mathcal{L[f(t)]}$, then $t\rightarrow t+c$.
+        \item (\textbf{Reverse}) Use $\mathcal{L}^{-1}[e^{-cs}F(s)]=f(t-c)u(t-c)$ Firstly, use the term $e^{-cs}$ to find $c$. Then use the $F(s) \text{ or } \mathcal{L}[f(t)]$ to find $f(t)$. Then, change $t$ to $t-c$.
     \end{itemize}
     \item (\textbf{The method of partial fraction decomposition})
     \begin{itemize}
