@@ -1,7 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
-\usepackage{amsmath}
-\usepackage{amsfonts}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
 
 \title{Classic Examples for Differential Equations}
 \author{Wenbo Zhu}
@@ -186,5 +185,183 @@
     \begin{equation*}
         e^{-x}\sin y=-x^2e^{-x}-2xe^{-x}-2e^{-x}+c
     \end{equation*}    
+\end{enumerate}
+\newpage
+\section{The Harmonic Oscillator}
+\subsection{The method of undetermined coefficients}
+\begin{enumerate}
+    \item (\textbf{Don't have Trigonometric Terms}) Find a particular solution to
+    \begin{equation}
+        y'''-2y''+y'=2x
+    \end{equation}
+    \textbf{Solution.} Firstly, the characteristic equation is $\lambda^3-2\lambda^2+\lambda=\lambda(\lambda-1)^2=0$, so
+    \begin{equation*}
+        y_h=c_1+c_2e^x+c_3xe^x
+    \end{equation*}
+    To find the particular solution, try $Ax+B$. Since a constant term appears in $y_h$ ($c_1$), we modify this trial solution: instead, try $y=Ax^2+Bx$. Then,
+    \begin{equation*}
+        y'=2Ax+b,y''=2A,y'''=0
+    \end{equation*}
+    Plugging this into the equation yields
+    \begin{equation*}
+        0-4A+2Ax+B=2x\Rightarrow 2Ax+(-4A+B)=2x+0
+    \end{equation*}
+    Comparing coefficients, we have $A=1$ and $B=4A=4$. Thus,
+    \begin{equation*}
+        y_p=x^2+4x
+    \end{equation*}
+    \item (\textbf{Have Trigonometric Terms}) Find a particular solution to
+    \begin{equation}
+        y''+2y'+3y=34e^x\cos 2x
+    \end{equation}
+    \textbf{Solution.} First, we observe that $f(x)=34e^x\cos 2x$ is equal to
+    \begin{equation*}
+        \mathfrak{Re}(34e^xe^{i2x})=\mathfrak{Re}(34e^{x(1+2i)})
+    \end{equation*}
+    Thus, we can equivalently solve for
+    \begin{equation*}
+        y''+2y'+3y=34e^{x(1+2i)}
+    \end{equation*}
+    noting that we only want the real part of this solution. We try
+    \begin{align*}
+        y_p&=Ae^{x(1+2i)}, \\
+        y_p'&=A(1+2i)e^{x(1+2i)}, \\
+        y_p''&=A(1+2i)^2e^{x(1+2i)}=A(-3+4i)e^{x(1+2i)},
+    \end{align*}
+    Substituting this into the equation, we have
+    \begin{equation*}
+        A(-3+4i)e^{x(1+2i)}+2A(1+2i)e^{x(1+2i)}+3Ae^{x(1+2i)}=34e^{x(1+2i)}
+    \end{equation*}
+    and $A(2+8i)=34$. Simplifying this, we find
+    \begin{equation}
+        A=\frac{34}{2+8i}=\frac{17}{1+4i}\cdot\frac{1-4i}{1-4i}=\frac{17-68i}{17}=1-4i
+    \end{equation}
+    So,
+    \begin{align*}
+        y_p&=(1-4i)e^{x(1+2i)}=e^x(1-4i)(\cos 2x+i\sin 2x) \\
+        &=e^x(\cos 2x+4\sin 2x+i(-4\cos 2x+\sin 2x))
+    \end{align*}
+    Thus, a particular solution is given by
+    \begin{equation*}
+        \mathfrak{Re}(y_p)=e^x(\cos 2x+4\sin 2x)
+    \end{equation*}
+\end{enumerate}
+\newpage
+\section{The Laplace Transform}
+\subsection{Unit Step Functions and Dirac Delta Functions}
+\begin{enumerate}
+    \item (\textbf{Application of Laplace transform on Unit Step Functions}) Do the Laplace Transform on the following unit step function
+    \begin{equation}
+        \frac{t^2}{2}\cdot u(t-1)
+    \end{equation}
+    \textbf{Solution.} We apply the Second Shifting Theorem\footnote{$\mathcal{L}[f(t-c)u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$ or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$}
+    \begin{align*}
+        \mathcal{L}[\frac{t^2}{2}\cdot u(t-1)]&=\frac{1}{2}e^{-s}\mathcal{L}[(t+1)^2]\\
+        &=\frac{e^{-s}}{2}\mathcal{L}[t^2+2t+1]\\
+        &=\frac{e^{-s}}{2}(\frac{2!}{s^3}+\frac{2}{s^2}+\frac{1}{s})
+    \end{align*}
+    \item (\textbf{Application of the Inverse Laplace Transform}) Solve the following initial value problem
+    \begin{equation}
+        y'=tu(t-2),y(0)=4
+    \end{equation}
+    \textbf{Solution.} Take the Laplace Transform of both sides yields
+    \begin{equation*}
+        s\mathcal{L}[y]-y(0)=\mathcal{L}[tu(t-2)]
+    \end{equation*}
+    To compute the right-hand side, we apply the Second-Shifting Theorem to $f(t)=t$
+    \begin{equation*}
+        \mathcal{L}[tu(t-2)]=e^{-2s}\mathcal{L}[t+2]=e^{-2s}(\frac{1}{s^2}+\frac{2}{s})
+    \end{equation*}
+    Thus, we have
+    \begin{equation*}
+        s\mathcal{L}[y]-4=e^{-2s}(\frac{1}{s^2}+\frac{2}{s})\Rightarrow \mathcal{L}[y]=e^{-2s}(\frac{1}{s^3}+\frac{2}{s^2})+\frac{4}{s}
+    \end{equation*}
+    We now take the inverse Laplace transform of both sides. We evaluate the first term on the right: by the Second Shifting Theorem,
+    \begin{equation*}
+        \mathcal{L}^{-1}[e^{-2s}(\frac{1}{s^3}+\frac{2}{s^2})]=f(t-2)u(t-2)\text{, where }\mathcal{L}[f(t)]=\frac{1}{s^3}+\frac{2}{s^2}
+    \end{equation*}
+    Since
+    \begin{equation*}
+        \mathcal{L}^{-1}[f(t)]=\mathcal{L}^{-1}[\frac{1}{s^3}]+\mathcal{L}^{-1}[\frac{2}{s^2}]=\frac{t^2}{2}+2t
+    \end{equation*}
+    we find that,
+    \begin{equation*}
+        f(t-2)=\frac{(t-2)^2}{2}+2(t-2)=\frac{(t-2)(t+2)}{2}=\frac{t^2-4}{2}
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+        \mathcal{L}^{-1}[e^{-2s}\cdot \frac{1+2s}{s^3}]=(\frac{t^2}{2}-2)\cdot u(t-2)
+    \end{equation*}
+    Thus, the solution to the initial value problem is
+    \begin{equation*}
+        y(t)=(\frac{t^2}{2}-2)\cdot u(t-2)+4
+    \end{equation*}
+\end{enumerate}
+\newpage
+\section{Partial Differential Equations}
+\subsection{The method of Separation of variables}
+\begin{enumerate}
+    \item (PDE becomes fake ODE) Find a particular solution $u(x,y)$ to the partial differential equation
+    \begin{equation*}
+        u_{xx}-2u_x-3u=0
+    \end{equation*}
+    given the initial conditions $u(0,y)=2y$ and $u_x=(0,y)=2y-4\sin y$ \textit{Hint: The partial differential equation only involves derivatives in $x$}
+    \textbf{Solution.}  We treat the partial differential equation as ordinary differential equation in $x$. Then, we have a second-order homogeneous linear differential equation:
+    \begin{equation*}
+        u''-2u'-3u=0\Rightarrow \lambda^2-2\lambda-3=(\lambda+1)(\lambda-3)=0
+    \end{equation*}
+    The partial differential equation thus has the general solution
+    \begin{equation*}
+        u(x,y)=f(y)e^{-x}+g(y)e^{3x}
+    \end{equation*}
+    where $f$ and $g$ are functions of $y$ (i.e., constants with respect to $x$). By the initial conditions, we have
+    \begin{equation*}
+        u(0,y)=f(y)+g(y)=2y
+    \end{equation*}
+    Likewise, taking the partial derivative of $u$ with respect to $x$,
+    \begin{equation*}
+        u_x=-fe^{-x}+3ge^{3x}\Rightarrow u_x(0,y)=-f(y)+3g(y)=2y-4\sin y
+    \end{equation*}
+    We thus require that
+    \begin{equation*}
+        \begin{cases}
+            f+g&=2y\\
+            -f+3g&=2y-4\sin y
+        \end{cases}
+    \end{equation*}
+    Solve it, we have
+    \begin{equation*}
+        \begin{cases}
+            f(y)&=y+\sin y \\
+            g(y)&=y-\sin y
+        \end{cases}
+    \end{equation*}
+    Hence, the desired solution to the partial differential equation is
+    \begin{equation*}
+        u(x,y)=(y+\sin y)e^{-x}+(y-\sin y)e^{3x}
+    \end{equation*}
+\end{enumerate}
+\subsection{The Heat Equation}
+\begin{enumerate}
+    \item (\textbf{Superposition Principle}) Consider the following partial differential equation:
+    \begin{equation}
+        u_t=2u_{xx},0\leq x\leq 3, t>0
+    \end{equation}
+    Solve the above equation with the given boundary and initial conditions
+    \begin{equation*}
+        u(0,t)=u(3,t)=0,u(x,0)=\frac{5}{8}\sin \pi x-\frac{5}{16}\sin 3\pi x+\frac{1}{16}\sin 5\pi x
+    \end{equation*}
+    \textbf{Solution.} This is simply the heat equation with $c^2=2,l=3$. Hence, our solutions will have the form
+    \begin{equation*}
+        u(x,t)=\beta_ne^{-2n^2\pi^2t/9}\sin(\frac{n\pi}{3}x)
+    \end{equation*}
+    By the initial condition $u(x,0)$, we have at $t=0$
+    \begin{equation*}
+        \beta_n\sin(\frac{n\pi}{3}x)=\frac{5}{8}\sin \pi x-\frac{5}{16}\sin 3\pi x+\frac{1}{16}\sin 5\pi x
+    \end{equation*}
+    By the Fundamental Theorem of Superposition, we can simply combine the solutions that produces each term above. Comparing coefficients we have $n=3,n=9,$ and $n=15$, with $\beta_3=5/8,\beta_9=-5/16$, and $\beta_15=1/16$, respectively. Hence, we have the particular solution
+    \begin{equation*}
+        u(x,t)=\frac{5}{8}e^{-2\pi^2t}\sin(\pi x)-\frac{5}{16}e^{-18\pi^2t}\sin(3\pi x)+\frac{1}{16}e^{-50\pi^2t}\sin(5\pi x)
+    \end{equation*}
 \end{enumerate}
 \end{document}

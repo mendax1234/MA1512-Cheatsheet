@@ -9,7 +9,6 @@
 \usepackage{hyperref}
 \usepackage{newtxtext} 
 \usepackage{enumitem}
-\usepackage{amssymb}
 \usepackage[table]{xcolor}
 \usepackage{vwcol}
 \usepackage{tikz}
@@ -236,7 +235,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
             \item If $f(x)=x\pm sin(kx)$, separate according to $\pm$, find $y_{p1}$ for $x$ and $y_{p2}$ for $sin(kx)$. Combine them, $y_p=y_{p1}+y_{p2}$.
             \item  If $f(x)=x\cdot sin(kx)$, suppose $y_{p1}$ is the guess for $x$ and $y_{p2}$ is the guess for $sin(kx)$. Time them, $y_p=(Ax+B)\cdot e^{ikx}$. After solving for $A,B$, get the $\Im\mathfrak{m}$ part as the particular solution.
             \item If $f(x)=C$, where $C$ is a constant, let $y_p=C$, where $C\in R$ is the undetermined coefficient.
-            \item (\textbf{Important}) If any term of the trial solution is already a solution of the complementary equation or you cannot solve for the undetermined coefficients, \textbf{multiply the non-constant part of your trial solution by $x$}. If still cannot, multiply it by $x^2\cdots$.
+            \item (\textbf{Important}) If any term of the trial solution is already a solution of the complementary equation (notice the constant term counts also!) or you cannot solve for the undetermined coefficients, \textbf{multiply the trial solution by $x$}. If still cannot, multiply it by $x^2\cdots$.
         \end{itemize}
         \textbf{The steps to solve for $y_p$ after making the guess of $y_p$}
         \begin{itemize}
@@ -249,6 +248,10 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
             \item When encounter higher degree e.g. $\sin^2x,\cos^2x$, use the double angle formula to decrease the degree to 1. Then make the guess.
         \end{itemize}
         \item (\textbf{Method of variation of parameters}) Given a solution $y_h(x)$ to the complementary equation, we can perform a \textbf{variation of parameters} to obtain a particular solution. $y_h=c_1y_1(x)+c_2y_2(x)\rightarrow y_p(x)=u(x)y_1(x)+v(x)y_2(x)$, where the functions $u(x)=-\int \frac{y_2f}{y_1y'_2-y'_1y_2}dx$, $v(x)=\int \frac{y_1f}{y_1y'_2-y'_1y_2}dx$, where $f$ is the $f(x)$ at the R.H.S of the initial diff eq.
+        \item (\textbf{Tips})
+        \begin{itemize}
+            \item This is used to solve question when it is hard/impossible to guess the solution. e.g. $y''+y=\tan x$
+        \end{itemize}
     \end{enumerate}
 \end{enumerate}
 \subsection{Simple Harmonic Motion}
@@ -325,7 +328,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$. (Sometimes the later one will be faster!)
     \begin{itemize}
         \item (\textbf{Forward}) Find $u(t-c)$, then use $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$, then use linearity and other properties to find the corresponding Laplace Transform $\mathcal{L[f(t)]}$, then $t\rightarrow t+c$.
-        \item (\textbf{Reverse}) Use $\mathcal{L}^{-1}[e^{-cs}F(s)]=f(t-c)u(t-c)$ Firstly, use the term $e^{-cs}$ to find $c$. Then use the $F(s) \text{ or } \mathcal{L}[f(t)]$ to find $f(t)$. Then, change $t$ to $t-c$.
+        \item (\textbf{Reverse}) Use $\mathcal{L}^{-1}[e^{-cs}F(s)]=f(t-c)u(t-c)$ Firstly, use the term $e^{-cs}$ to find $c$. Then do the \textbf{Inverse Laplace Transform} on every term of $F(s)$ to find $f(t)$. Then, change $t$ to $t-c$.
     \end{itemize}
     \item (\textbf{The method of partial fraction decomposition})
     \begin{itemize}
