@@ -109,4 +109,82 @@
     \end{equation*}
     Hence, we can only kill as much as 140 bugs per day.
 \end{enumerate}
+\newpage
+\section{Linear Differential Equations}
+\subsection{The method of Integrating Factors}
+\begin{enumerate}
+    \item Solve the following first-order linear differential equation
+    \begin{equation}
+        y'-(1+3x^{-1})y=x+2
+    \end{equation}
+    \textbf{Solution.} The equation is in standard form. The integrating factor is $e^{\int p(x)~dx}$, where $p(x)=-1-3x^{-1}$. Thus,
+    \begin{equation*}
+        \int p(x)~dx=-\int 1+3x^{-1}~dx=-x-3\ln x
+    \end{equation*}
+    and we have the integrating factor
+    \begin{equation*}
+        e^{\int p(x)~dx}=e^{-x-3\ln x}=x^{-3}e^{-x}
+    \end{equation*}
+    Multiplying this factor to both sides of the equation,
+    \begin{align*}
+        (x^{-3}e^{-x}[y'-(1-\frac{3}{x})y]&=(x^{-3}e^{-x})[x+2] \\
+        (x^{-3}e^{-x}y)'&=x^{-2}e^{-x}+2x^{-3}e^{-x}
+    \end{align*}
+    Integrating both sides of the equation yields\footnote{Here, integrate R.H.S w.r.t $x$. L.H.S not sure}
+    \begin{equation*}
+        x^{-3}e^{-x}y+c=\int x^{-2}e^{-x}~dx+2\int x^{-3}e^{-x}~dx
+    \end{equation*}
+    To solve the integral in the second term, we integrate by parts: let $u=e^{-x},du=-e^{-x}~dx$, and $dv=x^{-3}~dx, v=\frac{-x^{-2}}{2}$:
+    \begin{equation*}
+        2\int x^{-3}e^{-x}~dx=-e^{-x}x^{-2}-\int x^{-2}e^{-x}~dx
+    \end{equation*}
+    Thus, we have\footnote{Here we cancel off the term $\int x^{-2}e^{-x}~dx$}
+    \begin{equation*}
+        x^{-3}e^{-x}y+c=-e^{-x}x^{-2}
+    \end{equation*}
+\end{enumerate}
+\subsection{Bernoulli differential equation}
+\begin{enumerate}
+    \item (\textbf{Normal Substitution}) Find the general solution to the following differential equation
+    \begin{equation}
+        2xyy'+(x-1)y^2=x^2e^x
+    \end{equation} \label{eq:bernoulli-1}
+    \textbf{Solution.} Expressing the differential equation into Bernoulli form to find our $v$, we have
+    \begin{equation*}
+        2xy'+(x-1)y=x^2e^xy^{-1}
+    \end{equation*}
+    Now, we can let $v=y^2$, and $v'=2yy'$, substituting them into \ref{eq:bernoulli-1} yields
+    \begin{equation*}
+        xv'+(x-1)v=x^2e^x \Rightarrow v'+(1-x^{-1})v=xe^x
+    \end{equation*}
+    We have the integrating factor $e^{\int 1-\frac{1}{x}~dx}=e^{x-\ln x}=e^xx^{-1}$. Multiplying this to both sides of the equation,
+    \begin{align*}
+        (e^xx^{-1})[v'+(1-x^{-1})v]&=(\frac{e^x}{x})xe^x \\
+        (e^xx^{-1}v)'&=e^{2x}
+    \end{align*}
+    Integrating both sides, we have
+    \begin{equation*}
+        \frac{e^x}{x}y^2=\frac{1}{2}e^{2x}+c
+    \end{equation*}
+    \item (\textbf{Special Substitution}) Find the general solution to the following differential equation
+    \begin{equation}
+        x^2+\sin y=y'\cos y
+    \end{equation}
+    \textbf{Solution.} This is a Bernoulli equation: letting $v=\sin y,v'=y'\cos y$, the differential equation becomes
+    \begin{equation*}
+        x^2+v=v'\Rightarrow v'-v=x^2
+    \end{equation*}
+    We have the integrating factor $e^{\int-1~dx}=e^{-x}$. Multiplying this to both sides of the equation,
+    \begin{equation*}
+        e^{-x}[v'-v]=e^{-x}[x^2]\Rightarrow (e^{-x}v)'=e^{-x}x^2
+    \end{equation*}
+    We integrate the right-hand side by parts:
+    \begin{equation*}
+        \int e^{-x}x^2~dx=-x^2e^{-x}+2\int e^{-x}x~dx=-x^2e^{-x}+2(-xe^{-x}-e^{-x})+c
+    \end{equation*}
+    Substituting back $v=\sin y$, we find that
+    \begin{equation*}
+        e^{-x}\sin y=-x^2e^{-x}-2xe^{-x}-2e^{-x}+c
+    \end{equation*}    
+\end{enumerate}
 \end{document}
