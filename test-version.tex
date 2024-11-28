@@ -126,7 +126,6 @@
     \item (\textbf{The method of separation of variables}) A first-order differential equation of the form $\frac{dy}{dx}=F(x,y)$ is \textbf{separable} if it can be written as $M(x)dx=N(y)dy$. To solve this, directly integrate both sides of the equation, we will get $\int N(y)dy=\int M(x)dx+C$, where $C$ is an arbitrary constant.
     \begin{itemize}
         \item (\textbf{The position of arbitrary constant $C$}) The arbitrary constant must be added immediately when you integrate w.r.t independent variable.
-        \item (\textbf{Notation}) Sometimes $dy/dx$ is written simply as $y'$.
         \item (\textbf{Some useful substitution})
         \begin{itemize}
             \item If $y'=f(ax+by+c)$, we employ a \textit{linear change of variable}. Let $u=ax+by+c\rightarrow u'=a+by'$
@@ -137,8 +136,8 @@
     \item (\textbf{Classic Examples})
     \begin{itemize}
         \item (\textbf{Half-Life}) The typical scenario for half-life is \textit{exponential decay}, in which we have $\frac{dx}{dt}=-kx,k>0$ and since its solution is $x=x_0e^{-kt}$. We can get the formula to determine the \textit{decay rate $k$} given that we know the half-life $\tau$, so, it will be $\frac{x_0}{2}=x_0e^{-kt}\rightarrow k=\frac{ln2}{\tau}$
-        \item Remember that $\int\frac{2u+4}{u^2+4u+5}=\ln(u^2+4u+5)$.
-        \item For $y'\cdot y''=2$, to use separation of variables, use substitution $u=y'\rightarrow u\cdot u'=2$. Solve $u$ first, then substitute $u$ with $y$.
+        \item Remember that $\int\frac{2u+4}{u^2+4u+5}~du=\ln(u^2+4u+5)+c$.
+        \item To solve $y'\cdot y''=2$, to use separation of variables, use substitution $u=y'\rightarrow u\cdot u'=2$. Solve $u$ first, then substitute $u$ with $y$.
     \end{itemize}
     \item (\textbf{Tips})
     \begin{itemize}
@@ -149,8 +148,8 @@
 \begin{enumerate}
     \item (\textbf{Methods to find equilibrium solution})
     \begin{itemize}
-        \item Judge the order of the diff eq and let all the dependent variables' derivatives to be 0. e.g. First order $\rightarrow y'=0$, Second order $\rightarrow y'=0 \text{ and } y''=0$. e.g. $y'=-10y(20-y)(1-\frac{1}{30}y)\rightarrow 0=-10y(20-y)(1-\frac{1}{30}y)$
-        \item Use basic inequality technique to solve and sketch out a sign diagram for $dy/dt$ with $y$ % For example,\\
+        \item Judge the order of the diff eq and let all the \textbf{dependent variables' derivatives} to be 0. e.g. First order $\rightarrow y'=0$, Second order $\rightarrow y'=0 \text{ and } y''=0$. e.g. $y'=-10y(20-y)(1-\frac{1}{30}y)\rightarrow 0=-10y(20-y)(1-\frac{1}{30}y)$
+        \item Use basic inequality technique to solve and sketch out a sign diagram for $dy/dt$. The \textbf{y-axis is dependent variable} and the \textbf{x-axis is the independent variable}. % For example,\\
         %\centerline{\includegraphics[width=0.9\linewidth]{image/sign-diagram-for-dydt.png}}
         \item Draw the corresponding direction/slope field to judge the stability. % For example,\\
         % \centerline{\includegraphics[width=0.5\linewidth]{image/direction-field.png}}
@@ -164,11 +163,11 @@
 \subsection{Population Dynamics}
 \begin{enumerate}
     \item (\textbf{Malthusian model}) It assumes that the rate of change of a population is proportional to its present value. That is $dy/dt=ky\rightarrow y(t)=y_0e^{kt}$, where $y_0=y(0)$. This model suggests that a population would grow exponentially with \textbf{growth rate} k. (\textbf{Note that in Malthusian model, it is $y=y_0\cdot e^{kt}$, however, in half-life model, it is $x=x_0\cdot e^{-kt}$})
-    \item (\textbf{Verhulst model}) In Verhulst, our \textbf{growth rate} varies according to the present value $y$ of the population. The formula is given by $\frac{dy}{dt}=[k(1-\frac{y}{y_\infty})]y$, where $dy/dt$ is \textbf{rate of change} and $k(1-y/y_\infty)$ is \textbf{growth rate}. This model assumes that a population grows \textbf{logistically}, such that given any initial population, $lim_{t\to \infty}y(t)=y_\infty$, and $y_\infty$ is called the \textit{carrying capacity}.
-    \item (\textbf{Hunt rate}) Usually we directly minus the hunt rate (E) at the right side of our equation. e.g. In Malthusian Model, if the hunt rate is 100, $dy/dt=ky-100$
+    \item (\textbf{Verhulst model}) In Verhulst, our \textbf{growth rate} varies according to the present value $y$ of the population. The formula is given by $\frac{dy}{dt}=[k(1-\frac{y}{y_\infty})]y$, where $dy/dt$ is \textbf{rate of change} and $k(1-y/y_\infty)$ is \textbf{growth rate}. This model assumes that a population grows \textbf{logistically}, such that given any initial population, $lim_{t\to \infty}y(t)=y_\infty$, and $y_\infty$ is called the \textit{carrying capacity}, $y_\infty$ is also a stable equilibrium solution for the original Verhulst model.
+    \item (\textbf{Hunt rate}) Usually we directly minus the hunt rate (E) at the right side of our equation. e.g. In Malthusian Model, if the hunt rate is 100, $dy/dt=ky-100$.
     \item (\textbf{Some useful tips regarding Verhulst model})
     \begin{itemize}
-        \item Regard the R.H.S as a quadratic equation, we can see that when $y=y_\infty/2$, the rate of change $dy/dt$ will be maximum.
+        \item Regard the R.H.S as a quadratic equation, we can see that when $y=y_\infty/2$, the rate of change $dy/dt$ will be \textbf{maximum}.
         \item Given the initial condition $y(0)=y_0$, the solution for Verhulst Model is $y(t)=\frac{y_\infty}{1+(\frac{y_\infty}{y_0}-1)e^{-kt}}$
         \item In problems regarding Verhulst model, we are often interested in \textbf{finding the diff eq's equilibrium solutions}. Use the equilibrium solutions and slope field, we can determine whether the population will disappear or towards a constant. And when Hunt rate is included, we are interested in $E$ and $ky_\infty/4$
     \end{itemize}
@@ -180,13 +179,13 @@
     \item (\textbf{First-order Linear Equation}) A \textbf{first-order linear} differential equation is an equation of the form $a(x)y'+b(x)y=c(x)$, with $a(x)\neq 0$.
     \item (\textbf{Method of Integrating factor})
     \begin{itemize}
-        \item Rewrite the entire equation in standard linear form $y'+p(x)y=q(x)$ (The coefficient of $y'$ must be 1)
+        \item Rewrite the entire equation in \textbf{standard linear form} $y'+p(x)y=q(x)$ (The coefficient of $y'$ must be 1)
         \item Calculate the integrating factor $u=e^{\int p(x)dx}$ (No need to add arbitrary constant in this step)
         \item Multiply both sides of the equation by $u$: $u(y'+py)=uq\rightarrow (uy)'=uq$ (When doing calculation, for the L.H.S, just substitute $u$ in and leave it as it is)
         \item Integrate both sides of the equation. (Remember to add the arbitrary constant $C$ at the right side of the equation at this step! And sometimes \textbf{Integration by parts} is needed! Don't be scared!)
     \end{itemize}
-    \item (\textbf{Bernoulli differential equation}) It is a diff eq of the form $y'+p(x)y=q(x)y^n\equiv y^{-n}y'+y^{1-n}p(x)=q(x)$. To solve it, use substitution. Substitute $v=y^{1-n}$, so $v'=(1-n)y^{-n}y'$. Then, the Bernoulli equation is simply $v'+v(1-n)p(x)=q(x)(1-n)$. Then use integrating factor to solve it. And now, the integrating factor is $e^{\int (1-n)p(x)~dx}$ (Always remember to fit in the exact form of Bernoulli equation, but the coefficient of $y'$ can include $x$, then try to find the suitable substitution)
-    \item (\textbf{Some useful substitution}) The sole of substitution is to reduce the equation for first-order linear equation. So, the whole idea is to try some substitution $v$ and find whether $v'$ can help me achieve the goal.
+    \item (\textbf{Bernoulli differential equation}) It is a diff eq of the form $y'+p(x)y=q(x)y^n\equiv y^{-n}y'+y^{1-n}p(x)=q(x)$. To solve it, use substitution. Substitute $v=y^{1-n}$, so $v'=(1-n)y^{-n}y'$. Then, the Bernoulli equation is simply $v'+v(1-n)p(x)=q(x)(1-n)$. Then use integrating factor to solve it. And now, the integrating factor is $e^{\int (1-n)p(x)~dx}$ (Always remember to fit in the exact form of Bernoulli equation, then try to find the suitable substitution)
+    \item (\textbf{Some useful substitution})
     \begin{itemize}
         \item $v=siny$, $v'=cosy\cdot y'$
     \end{itemize}
@@ -196,7 +195,7 @@
 In this part, we mainly focus on how to solve \textbf{homogeneous} linear differential equation with \textbf{constant coefficients}.
 \begin{enumerate}
     \item (\textbf{Homogeneous/Non-homogeneous}) A \textbf{linear differential equation with constant coefficients} is an equation of the form $a_ny^{(n)}+a_{n-1}y^{(n-1)}+\cdots+a_1y'+a_0y=f(x)$, where $a_i\in R$. When $f(x)=0$, the equation is said to be \textbf{homogeneous}; otherwise, it is said to be \textbf{non-homogeneous}.
-    \item (\textbf{Methods to solve homogeneous diff eq with constant coefficients})
+    \item (\textbf{The method of characteristic equation})
     \begin{itemize}
         \item Make a guess $y(x)=e^{\lambda x}$
         \item Plug the guess into the diff eq and form a \textbf{characteristic equation}: $a_n\lambda^n+a_{n-1}\lambda^{n-1}+\cdots+a_1\lambda+a_0=0$. Solve for $\lambda$
@@ -216,9 +215,9 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
 \begin{enumerate}
     \item (\textbf{Rule of Thumb}) Consider the non-homogeneous second-order linear equation $y''+py'+qy=f(x)$, where $f(x)\neq 0$ and $p, q$ must be \textbf{constant} (cannot be function of $x$). The general solution to this differential equation is given by $y(x)=y_h(x)+y_p(x)$, where $y_h(x)$ is the \textbf{general solution} to the \textit{complementary homogeneous equation} $y''+py'+qy=0$, and $y_p(x)$ is any \textbf{particular solution}.
     \item (\textbf{Methods to obtain the particular solution})
-    Usually, the $y_p$ is a determined/exact function.
+    Usually, $y_p$ is a determined/exact function.
     \begin{enumerate}
-        \item (\textbf{Method of undetermined coefficients}) When $f(x)$ involves simple functions, we can attempt to guess $y_p(x)$ using the rule below and leave $f(x)$ as it is at R.H.S (except when it involves complex numbers)
+        \item (\textbf{Method of undetermined coefficients}) When $f(x)$ involves simple functions, we can attempt to guess $y_p(x)$ using the rule below and \textbf{leave $f(x)$ as it is at R.H.S (except when it involves complex numbers)}
         \begin{itemize}
             \item If $f(x)=x^n$, let $y_p=A_1x^n+A_2x^{n-1}+\cdots+A_nx^1+C$, where $A_1, A_2,\cdots, A_n, C \in R$ are undetermined coefficients.
             \item If $f(x)=e^{kx}$, let $y_p=Ae^{kx}$, where $A\in R$ is an undetermined coefficients. $k$ can be real/complex number.
@@ -234,7 +233,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \textbf{The steps to solve for $y_p$ after making the guess of $y_p$}
         \begin{itemize}
             \item If $f(x)$ \textbf{does not contain trigonometric functions}. Leave R.H.S as it is, calculate the derivative of your guess $y_p$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficients.
-            \item If $f(x)$ \textbf{contains trigonometric functions}. Change the trigonometric function part at R.H.S ($sinkx, coskx$) to $e^{ikx}$. Leave the remaining R.H.S as it is (Don't forget the coefficients). Calculate the derivative of your guess $y_p=Ae^{ikx}$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficient. Then substitute the undetermined coefficient (usually it is a complex number) in, change $e^{ikx}$ to $\cos kx+i\sin kx$. If the original $f(x)$ contains $sin(kx)$ only, then find the $\Im\mathfrak{m}$ part of $y_p$. If the original $f(x)$ contains $cos(kx)$ only, then find the $\Re\mathfrak{e}$ part of $y_p$.
+            \item If $f(x)$ \textbf{contains trigonometric functions}. Change the trigonometric function part at R.H.S ($sinkx, coskx$) to $e^{ikx}$ (without undertermined coefficients). Leave the remaining R.H.S as it is (Don't forget the coefficients). Calculate the derivative of your guess $y_p=Ae^{ikx}$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficient. Then substitute the undetermined coefficient (usually it is a complex number) in, change $e^{ikx}$ to $\cos kx+i\sin kx$. If the original $f(x)$ contains $sin(kx)$ only, then find the $\Im\mathfrak{m}$ part of $y_p$. If the original $f(x)$ contains $cos(kx)$ only, then find the $\Re\mathfrak{e}$ part of $y_p$.
         \end{itemize}
         \textbf{Tips}
         \begin{itemize}
@@ -250,7 +249,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
 \end{enumerate}
 \subsection{Simple Harmonic Motion}
 \begin{enumerate}
-    \item (\textbf{Simple Harmonic Motion (SHM)}) Its differential equation is $m\Ddot{x}=-kx \equiv \Ddot{x}=-\frac{k}{m}x$ or $\Ddot{x}=-\omega^2x \equiv \Ddot{x}+\omega^2x=0$, where $\omega=\sqrt{\frac{k}{m}}$ and $\omega$ denotes the \textbf{angular frequency} of the oscillation, which is to differ from $f$, which is equal to $\omega / 2\pi$. And its solution is $x=R\cos(\omega t-\varphi)$, where $R$ and $\varphi$ are two arbitrary constants that can be determined by \textbf{initial conditions}.
+    \item (\textbf{Simple Harmonic Motion (SHM)}) Its differential equation is $m\Ddot{x}=-kx \equiv \Ddot{x}=-\frac{k}{m}x$ or $\Ddot{x}=-\omega^2x \equiv \Ddot{x}+\omega^2x=0$, where $\omega=\sqrt{\frac{k}{m}}$ and $\omega$ denotes the \textbf{angular frequency} of the oscillation, which is to differ from $f$, which is equal to $\omega / 2\pi$. And its solution is $x=c_1\cos \omega t+c_2 \sin\omega t\text{ or }R\cos(\omega t-\varphi)$, where $c_1,c_2,R,\varphi$ are two arbitrary constants that can be determined by \textbf{initial conditions}. (It is recommended to use $c_1,c_2$ version in the test)
     \item (\textbf{Some useful tips}) 
     \begin{itemize}
         \item (Speed) $v=-\omega R\sin(\omega t-\varphi)$
@@ -259,26 +258,27 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
     \end{itemize}
     \item (\textbf{Damped Harmonic Motion (DHM)}) The damping force is ($F=-bv)$, where $b$ is a constant.
     \begin{itemize}
-        \item (\textbf{Its differential equation}) $m\ddot{x}+b\dot{x}+kx=0 \equiv \ddot{x}+\frac{b}{m}\dot{x}+\frac{k}{m}x=0$. Or if we denote $\omega=\sqrt{\frac{k}{m}}, \gamma=\frac{b}{2m}$, our differential equation becomes $\ddot{x}=-\omega^2x-2\gamma x\equiv \ddot{x}+2\gamma \dot{x}+\omega^2x$
+        \item (\textbf{Its differential equation}) $m\ddot{x}+b\dot{x}+kx=0 \equiv \ddot{x}+\frac{b}{m}\dot{x}+\frac{k}{m}x=0$. Or if we denote $\omega=\sqrt{\frac{k}{m}}, \gamma=\frac{b}{2m}$, our differential equation becomes $\ddot{x}=-\omega^2x-2\gamma x\equiv \ddot{x}+2\gamma \dot{x}+\omega^2=0$
         \item (\textbf{Its solution}) It depends on the constant $b$. When $b$ is small (underdamped), $x=Ae^{-\gamma t}\cos(\omega't-\varphi)$. Use the initial condition $t=0, x=A$, our solution becomes $x=Ae^{-\gamma t}\cos\omega't$, where $\gamma=\frac{b}{2m}, \omega'=\sqrt{\frac{k}{m}-\frac{b^2}{4m^2}}$
-        \item (\textbf{Different amounts of damping}) By using the characteristic equation method to solve the differential equation $\lambda^2+2\gamma\lambda+\omega^2=0$, with solutions $\lambda=-\gamma\pm\sqrt{\gamma^2-\omega^2}$. The nature of the object's motion now depends on the value of the discriminant $\Delta=\gamma^2-\omega^2$
+        \item (\textbf{Different amounts of damping}) By using the characteristic equation method to solve the differential equation $\lambda^2+2\gamma\lambda+\omega^2=0$, with solutions $\lambda=-\gamma\pm\sqrt{\gamma^2-\omega^2}<0$. The nature of the object's motion now depends on the value of the discriminant $\Delta=\gamma^2-\omega^2$
         \begin{itemize}
-            \item (\textbf{Overdamped}) (Shown as Curve C) It occurs when $\gamma^2>\omega^2\text{ or, }b^2\gg 4mk$, when our $\omega'$ becomes imaginary. It means the damping is so large and it takes a long time to reach equilibrium. It has two real roots $\lambda_1, \lambda_2 \in R$ and $x=c_1e^{\lambda_1 t}+c_2e^{\lambda_2 t}$. 
-            \item (\textbf{Underdamped}) (Shown as Curve A) It occurs when $\gamma^2<\omega^2\text{ or, }b^2 < 4mk$. It means the system makes several swings before coming to rest. It has two complex conjugate roots $\lambda=\alpha+i\beta \in C$ and $x=c_1e^{\alpha t}\cos\beta t+c_2e^{\alpha t}\sin\beta t$ (Still oscillate)
-            \item (\textbf{Critical damping}) (Shown as Curve B) It occurs when $\gamma^2=\omega^2\text{ or, }b^2=4mk$. In this case, the equilibrium is reached in the shortest time. It has a \textbf{repeated} real root $\lambda\in R$ and $x=c_1e^{\lambda t}+c_2te^{\lambda t}$.
+            \item (\textbf{Overdamped}) It occurs when $\gamma^2>\omega^2\text{ or, }b^2\gg 4mk$, when our $\omega'$ becomes imaginary. It means the damping is so large and it takes a long time to reach equilibrium. It has two real roots $\lambda_1, \lambda_2 \in R$ and $x=c_1e^{\lambda_1 t}+c_2e^{\lambda_2 t}$. 
+            \item (\textbf{Underdamped}) It occurs when $\gamma^2<\omega^2\text{ or, }b^2 < 4mk$. It means the system makes several swings before coming to rest. It has two complex conjugate roots $\lambda=\alpha+i\beta \in C$ and $x=c_1e^{\alpha t}\cos\beta t+c_2e^{\alpha t}\sin\beta t$ (Still oscillate)
+            \item (\textbf{Critical damping}) It occurs when $\gamma^2=\omega^2\text{ or, }b^2=4mk$. In this case, the equilibrium is reached in the shortest time. It has a \textbf{repeated} real root $\lambda\in R$ and $x=c_1e^{\lambda t}+c_2te^{\lambda t}$.
         \end{itemize}
         % \centerline{\includegraphics[width=0.4\linewidth]{image/damped-harmonic-motion.png}}
     \end{itemize}
   \item (\textbf{Forced Oscillation (FO): Resonance}) When an oscillating system has an external force applied to it that has its own \textbf{particular frequency}, we have a \textbf{forced oscillation}.
     \begin{itemize}
-        \item (\textbf{Its differential equation}) Suppose our $F_{\text{ext}}=F_0\cos\omega t$ and consider the damping force also, we have $\Ddot{x}+\frac{b}{m}\Dot{x}+\omega_0^2x=F_0\cos\omega t$.
-        \item (\textbf{Its solution}) Given the initial condition $t=0, x=A$, our general solution is $x=A\cdot e^{-\gamma t}\cdot\cos\omega_0t+A_0\cdot\sin(\omega t+\varphi)$, where $\gamma=\frac{b}{2m}, A_0=\frac{F_0}{m\sqrt{(\omega^2-\omega_0^2)^2+b^2\omega^2/m^2}}, \varphi=\arctan\frac{\omega_0^2-\omega^2}{b\omega/m}$.
+        \item (\textbf{Its differential equation}) Suppose our $F_{\text{ext}}=F\cos\omega t$ and consider the damping force also, we have $\Ddot{x}+\frac{b}{m}\Dot{x}+\omega_0^2x=F\cos\omega t$.
+        \item (\textbf{Its solution}) Given the initial condition $t=0, x=A$, our general solution is $x=A\cdot e^{-\gamma t}\cdot\cos\omega_0t+A_0\cdot\sin(\omega t+\varphi)$, where $\gamma=\frac{b}{2m}, A_0=\frac{F}{m\sqrt{(\omega^2-\omega_0^2)^2+b^2\omega^2/m^2}}, \varphi=\arctan\frac{\omega_0^2-\omega^2}{b\omega/m}$.
         \item (\textbf{Some tips})
         \begin{itemize}
             \item When solving oscillation problems, the first thing is to decide whether it is \textbf{SHM}, or \textbf{DHM} or \textbf{FO}. Then find the suitable equation to plug in.
-            \item When $\omega = \omega_0$, \textbf{resonance} occurs and if damping force is not considered and initial condition is not given, when $\omega = \omega_0$, then our solution becomes $x=A\cos(\omega t+\varphi)+\frac{F}{2\omega}t\sin\omega t$. Otherwise, the oscillator will be \textbf{stable} (means never tend to infinity). Given that the initial condition is \textit{the oscillator starts at rest at equilibrium}, then $A=0$ ($x(0)=0), \dot{x}(0)=0$), a.k.a we can kick out of the first term and now $x=\frac{F}{2\omega}t\sin\omega t$
+            \item When $\omega = \omega_0$, \textbf{resonance} occurs. \textbf{If damping force is not considered} and \textbf{initial condition is not given}, only when $\omega = \omega_0$, our solution becomes $x=c_1\cos \omega t+c_2 \sin\omega t + \frac{F}{2\omega}t\sin\omega t$ (if $F_{\text{ext}}=F\cos \omega t$). If given that the initial condition is \textit{the oscillator starts at rest at equilibrium}, then $A=0$ ($x(0)=0, \dot{x}(0)=0$), a.k.a we can kick out of the first term and now $x=\frac{F}{2\omega}t\sin\omega t$. If $F_{ext}=F\sin \omega t$, then solve it manually. \newline
+            Otherwise ($\omega \neq \omega_0$), the oscillator will be \textbf{stable} (means never tend to infinity).
             \item Notice that in our general solution, as our $t$ increases, the first term approaches 0 because of $Ae^{-\gamma t}$.
-            \item The natural frequency of the system $\omega_0$ is called the \textbf{resonance frequency}.
+            \item The natural frequency of the system $\omega_0$ is called the \textbf{resonance frequency}. And if the external force has several angular frequency, when either one of them is equal to $\omega_0$, the resonace will occur.
         \end{itemize}
     \end{itemize}
 \end{enumerate}
@@ -303,7 +303,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
     \item (\textbf{Derivatives}) $\mathcal{L}[y']=s\mathcal{L}[y]-y(0)$, $\mathcal{L}[y'']=s^2\mathcal{L}[y]-sy(0)-y'(0)$. General form is $\mathcal{L}[f^{(n)}(t)]=s^n\mathcal{L}[f(t)]-s^{n-1}f(0)-\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0)$
         \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$. (Sometimes the later one will be faster!)
     \begin{itemize}
-        \item (\textbf{Forward}) Find $u(t-c)$, then use $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$, then use linearity and other properties to find the corresponding Laplace Transform $\mathcal{L[f(t)]}$, then $t\rightarrow t+c$.
+        \item (\textbf{Forward}) Find $u(t-c)$, then use $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$. Then $t\rightarrow t+c$. Lastly, use linearity and other properties to find the corresponding Laplace Transform $\mathcal{L}[f(t+c)]$.
         \item (\textbf{Reverse}) Use $\mathcal{L}^{-1}[e^{-cs}F(s)]=f(t-c)u(t-c)$ Firstly, use the term $e^{-cs}$ to find $c$. Then do the \textbf{Inverse Laplace Transform} on every term of $F(s)$ to find $f(t)$. Then, change $t$ to $t-c$ to form $f(t-c)$.
     \end{itemize}
     \item (\textbf{The method of partial fraction decomposition})
@@ -315,7 +315,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
     \begin{itemize}
         \item To use the above properties, the first step is to find your $y\text{ or }f(t)$, this is your base function. Then find the Laplace Transform of your base function. Then use the properties.
         \item (\textbf{The Inverse Laplace Transform}) e.g. Evaluate $\mathcal{L}^{-1}[\frac{1+e^{-3s}}{s^4}]$. $F(s)=\frac{1}{s^4}+e^{-3s}\frac{1}{s^4}$. Note that $\mathcal{L}^{-1}[\frac{1}{s^n}]=\frac{t^{n-1}}{(n-1)!}, \mathcal{L}^{-1}[e^{-as}F(s)]=f(t-a)u(t-a)$. Hence, $f(t)=\mathcal{L}^{-1}[F(s)]=\frac{t^3}{3!}+\frac{(t-3)^3}{3!}u(t-3)$
-        \item (\textbf{Convolution Integral}) If $\mathcal{L}^{-1}[F(s)]=f(t)$ and $\mathcal{L}^{-1}[G(s)]=g(t)$, then $\mathcal{L}^{-1}[F(s)G(s)]=\int_0^tf(u)g(t-u)du=\int_0^tg(u)f(t-u)du=(f*g)(t)$
+        \item (\textbf{Variation of the Laplace Transform Definition}) To get $\mathcal{L}[f(ct)]$, let $u=ct, du=c~dt$. Thus $\mathcal{L}[f(ct)]=\frac{1}{c}\int_{0}^{\infty}e^{-(s/c)u}f(u)~du=\frac{1}{c}F(\frac{s}{c})$. What matters is the exponential term $e^{\cdots s}$.
         \item (\textbf{Differentiate the unit step function}) For a unit step function $u(t-c)$, if differentiate w.r.t $c$, we treat $u(t-c)$ as a constant.
     \end{itemize}
 \end{enumerate}
@@ -341,7 +341,7 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \item Suppose that a solution is given by $u(x,y)=A(x)B(y)$
         \item Rewrite the equation in $A$ and $B$, e.g. $u=AB,u_x=A'B,u_y=AB',u_{xx}=A''B\cdots$
         \item Separate the variables: $f(x, A, A',\cdots)=g(y, B, B', \cdots)$ and let both sides equal to a \textit{separation constant} $k$. Thus, we have two ODEs.
-        \item Solve these two ODEs using separation of variables in ODE. Get $A=\cdots x, B=\cdots y$. Then combine these two solutions by $u(x,y)=AB$
+        \item Solve these two ODEs using separation of variables in ODE. Get $A=\cdots x, B=\cdots y$. Then combine these two solutions by $u(x,y)=AB$, which will be a general solution.
     \end{enumerate}
     \item (\textbf{Superposition Principle}) Let $u_1(x,y)$ and $u_2(x,y)$ be solutions of a \textbf{homogeneous linear PDE}. Then, a solution is also given by $u(x,y)=c_1u_1(x,y)+c_2u_2(x,y)$, for any $c_1,c_2\in R$
     \item (\textbf{Solving Tips})
