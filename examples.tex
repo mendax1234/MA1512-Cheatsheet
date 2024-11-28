@@ -91,7 +91,7 @@
 \begin{enumerate}
     \item (\textbf{Application of Equilibrium Solutions}) The population of a certain species of bugs behaves according to the Verhulst (logistic) model, and the formula is given below:
     \begin{equation}
-        \frac{dy}{dt}=[k(1-\frac{y}{y_\infty}]y
+        \frac{dy}{dt}=[k(1-\frac{y}{y_\infty})]y
     \end{equation}
     where $k=-15, y_{\infty}\approx375.75$. Now, what is the maximum number of bugs you can put to death per day without causing the population to die out? \newline
     \textbf{Solution.} We may now modify the Verhulst equation to account for the harvesting of bugs. Suppose $E$ bugs are put to death per day. Then
@@ -126,14 +126,14 @@
     \end{equation*}
     Multiplying this factor to both sides of the equation,
     \begin{align*}
-        (x^{-3}e^{-x}[y'-(1-\frac{3}{x})y]&=(x^{-3}e^{-x})[x+2] \\
+        (x^{-3}e^{-x})[y'-(1-\frac{3}{x})y]&=(x^{-3}e^{-x})[x+2] \\
         (x^{-3}e^{-x}y)'&=x^{-2}e^{-x}+2x^{-3}e^{-x}
     \end{align*}
     Integrating both sides of the equation yields\footnote{Here, integrate R.H.S w.r.t $x$. L.H.S not sure}
     \begin{equation*}
         x^{-3}e^{-x}y+c=\int x^{-2}e^{-x}~dx+2\int x^{-3}e^{-x}~dx
     \end{equation*}
-    To solve the integral in the second term, we integrate by parts: let $u=e^{-x},du=-e^{-x}~dx$, and $dv=x^{-3}~dx, v=\frac{-x^{-2}}{2}$:
+    To solve the integral in the second term, we integrate by parts: let $u=e^{-x},du=-e^{-x}~dx$, and $dv=x^{-3}~dx, v=\frac{-x^{-2}}{2}$:\footnote{Note that $\int e^{-x}x^{-2}~dx$ is unsolvable using my limited knowledge.} 
     \begin{equation*}
         2\int x^{-3}e^{-x}~dx=-e^{-x}x^{-2}-\int x^{-2}e^{-x}~dx
     \end{equation*}
@@ -145,14 +145,14 @@
 \subsection{Bernoulli differential equation}
 \begin{enumerate}
     \item (\textbf{Normal Substitution}) Find the general solution to the following differential equation
-    \begin{equation}
+    \begin{equation} \label{eq:bernoulli-1}
         2xyy'+(x-1)y^2=x^2e^x
-    \end{equation} \label{eq:bernoulli-1}
+    \end{equation} 
     \textbf{Solution.} Expressing the differential equation into Bernoulli form to find our $v$, we have
     \begin{equation*}
         2xy'+(x-1)y=x^2e^xy^{-1}
     \end{equation*}
-    Now, we can let $v=y^2$, and $v'=2yy'$, substituting them into \ref{eq:bernoulli-1} yields
+    Now, we can let $v=y^2$, and $v'=2yy'$, substituting them into (\ref{eq:bernoulli-1}) yields\footnote{Afterwards, we should write the equation in $v$ in the linear form, which is the coefficient of $v'$ must be 1}
     \begin{equation*}
         xv'+(x-1)v=x^2e^x \Rightarrow v'+(1-x^{-1})v=xe^x
     \end{equation*}
@@ -282,7 +282,7 @@
     \end{equation*}
     Since
     \begin{equation*}
-        \mathcal{L}^{-1}[f(t)]=\mathcal{L}^{-1}[\frac{1}{s^3}]+\mathcal{L}^{-1}[\frac{2}{s^2}]=\frac{t^2}{2}+2t
+        f(t)=\mathcal{L}^{-1}[F(s)]=\mathcal{L}^{-1}[\frac{1}{s^3}]+\mathcal{L}^{-1}[\frac{2}{s^2}]=\frac{t^2}{2}+2t
     \end{equation*}
     we find that,
     \begin{equation*}
@@ -306,6 +306,7 @@
         u_{xx}-2u_x-3u=0
     \end{equation*}
     given the initial conditions $u(0,y)=2y$ and $u_x=(0,y)=2y-4\sin y$ \textit{Hint: The partial differential equation only involves derivatives in $x$}
+    
     \textbf{Solution.}  We treat the partial differential equation as ordinary differential equation in $x$. Then, we have a second-order homogeneous linear differential equation:
     \begin{equation*}
         u''-2u'-3u=0\Rightarrow \lambda^2-2\lambda-3=(\lambda+1)(\lambda-3)=0
@@ -359,7 +360,7 @@
     \begin{equation*}
         \beta_n\sin(\frac{n\pi}{3}x)=\frac{5}{8}\sin \pi x-\frac{5}{16}\sin 3\pi x+\frac{1}{16}\sin 5\pi x
     \end{equation*}
-    By the Fundamental Theorem of Superposition, we can simply combine the solutions that produces each term above. Comparing coefficients we have $n=3,n=9,$ and $n=15$, with $\beta_3=5/8,\beta_9=-5/16$, and $\beta_15=1/16$, respectively. Hence, we have the particular solution
+    By the Fundamental Theorem of Superposition, we can simply combine the solutions that produces each term above. Comparing coefficients we have $n=3,n=9,$ and $n=15$, with $\beta_3=5/8,\beta_9=-5/16$, and $\beta_{15}=1/16$, respectively. Hence, we have the particular solution
     \begin{equation*}
         u(x,t)=\frac{5}{8}e^{-2\pi^2t}\sin(\pi x)-\frac{5}{16}e^{-18\pi^2t}\sin(3\pi x)+\frac{1}{16}e^{-50\pi^2t}\sin(5\pi x)
     \end{equation*}
