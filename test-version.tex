@@ -129,7 +129,7 @@
         \item (\textbf{Some useful substitution})
         \begin{itemize}
             \item If $y'=f(ax+by+c)$, we employ a \textit{linear change of variable}. Let $u=ax+by+c\rightarrow u'=a+by'$
-            \item If $y'=f(y/x)$, we let $y=xv$, and $y'=xv'+v$ (Product Rule) (This is same as let $v=\frac{y}{x}$ first.
+            \item If $y'=f(y/x)$, we let $y=xv$, and $y'=xv'+v$ (Product Rule) (This is same as let $v=\frac{y}{x}$ first.)
         \end{itemize}
         Note that in both substitutions, we assume the function at the right side can be written as $f(\cdots)$, which is the soul in substitution.
     \end{itemize}
@@ -182,7 +182,7 @@
         \item Rewrite the entire equation in \textbf{standard linear form} $y'+p(x)y=q(x)$ (The coefficient of $y'$ must be 1)
         \item Calculate the integrating factor $u=e^{\int p(x)dx}$ (No need to add arbitrary constant in this step)
         \item Multiply both sides of the equation by $u$: $u(y'+py)=uq\rightarrow (uy)'=uq$ (When doing calculation, for the L.H.S, just substitute $u$ in and leave it as it is)
-        \item Integrate both sides of the equation. (Remember to add the arbitrary constant $C$ at the right side of the equation at this step! And sometimes \textbf{Integration by parts} is needed! Don't be scared!)
+        \item Integrate both sides of the equation. (Remember to add the arbitrary constant $C$ at the R.H.S of the equation at this step! And sometimes \textbf{Integration by parts} is needed! Don't be scared!)
     \end{itemize}
     \item (\textbf{Bernoulli differential equation}) It is a diff eq of the form $y'+p(x)y=q(x)y^n\equiv y^{-n}y'+y^{1-n}p(x)=q(x)$. To solve it, use substitution. Substitute $v=y^{1-n}$, so $v'=(1-n)y^{-n}y'$. Then, the Bernoulli equation is simply $v'+v(1-n)p(x)=q(x)(1-n)$. Then use integrating factor to solve it. And now, the integrating factor is $e^{\int (1-n)p(x)~dx}$ (Always remember to fit in the exact form of Bernoulli equation, then try to find the suitable substitution)
     \item (\textbf{Some useful substitution})
@@ -232,8 +232,22 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
         \end{itemize}
         \textbf{The steps to solve for $y_p$ after making the guess of $y_p$}
         \begin{itemize}
-            \item If $f(x)$ \textbf{does not contain trigonometric functions}. Leave R.H.S as it is, calculate the derivative of your guess $y_p$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficients.
-            \item If $f(x)$ \textbf{contains trigonometric functions}. Change the trigonometric function part at R.H.S ($sinkx, coskx$) to $e^{ikx}$ (without undertermined coefficients). Leave the remaining R.H.S as it is (Don't forget the coefficients). Calculate the derivative of your guess $y_p=Ae^{ikx}$ if necessary. Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$. Solve for the undetermined coefficient. Then substitute the undetermined coefficient (usually it is a complex number) in, change $e^{ikx}$ to $\cos kx+i\sin kx$. If the original $f(x)$ contains $sin(kx)$ only, then find the $\Im\mathfrak{m}$ part of $y_p$. If the original $f(x)$ contains $cos(kx)$ only, then find the $\Re\mathfrak{e}$ part of $y_p$.
+            \item If $f(x)$ \textbf{does not contain trigonometric functions}.
+            \begin{enumerate}
+                \item Leave R.H.S as it is
+                \item Calculate the derivative of your guess $y_p$ if necessary.
+                \item Substitute $y, y', \cdots$ with $y_p, y'_p \cdots$.
+                \item Solve for the undetermined coefficients.
+            \end{enumerate}
+            \item If $f(x)$ \textbf{contains trigonometric functions}.
+            \begin{enumerate}
+                \item Change the trigonometric function part at R.H.S ($sinkx, coskx$) to $e^{ikx}$ (without undetermined coefficients). Leave the remaining R.H.S as it is (Don't forget the coefficients).
+                \item Calculate the derivative of your guess $y_p=Ae^{ikx}$ if necessary.
+                \item Substitute $y, y', \cdots$ with $y_p, y'_p, \cdots$.
+                \item Solve for the undetermined coefficient.
+                \item Then substitute the undetermined coefficient (usually it is a complex number) in, change $e^{ikx}$ to $\cos kx+i\sin kx$.
+                \item If the original $f(x)$ contains $sin(kx)$ only, then find the $\Im\mathfrak{m}$ part of $y_p$. If the original $f(x)$ contains $cos(kx)$ only, then find the $\Re\mathfrak{e}$ part of $y_p$.
+            \end{enumerate}
         \end{itemize}
         \textbf{Tips}
         \begin{itemize}
@@ -303,8 +317,18 @@ In this part, we mainly focus on how to solve \textbf{homogeneous} linear differ
     \item (\textbf{Derivatives}) $\mathcal{L}[y']=s\mathcal{L}[y]-y(0)$, $\mathcal{L}[y'']=s^2\mathcal{L}[y]-sy(0)-y'(0)$. General form is $\mathcal{L}[f^{(n)}(t)]=s^n\mathcal{L}[f(t)]-s^{n-1}f(0)-\cdots-sf^{(n-2)}(0)-f^{(n-1)}(0)$
         \item (\textbf{Second Shifting Theorem}) $\mathcal{L}[f(t-c)\cdot u(t-c)]=e^{-sc}\mathcal{L}[f(t)]$, or $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$. (Sometimes the later one will be faster!)
     \begin{itemize}
-        \item (\textbf{Forward}) Find $u(t-c)$, then use $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$. Then $t\rightarrow t+c$. Lastly, use linearity and other properties to find the corresponding Laplace Transform $\mathcal{L}[f(t+c)]$.
-        \item (\textbf{Reverse}) Use $\mathcal{L}^{-1}[e^{-cs}F(s)]=f(t-c)u(t-c)$ Firstly, use the term $e^{-cs}$ to find $c$. Then do the \textbf{Inverse Laplace Transform} on every term of $F(s)$ to find $f(t)$. Then, change $t$ to $t-c$ to form $f(t-c)$.
+        \item (\textbf{Forward})
+        \begin{enumerate}
+            \item Find $u(t-c)$, then use $\mathcal{L}[f(t)u(t-c)]=e^{-sc}\mathcal{L}[f(t+c)]$.
+            \item Then $t\rightarrow t+c$.
+            \item Lastly, use linearity and other properties to find the corresponding Laplace Transform $\mathcal{L}[f(t+c)]$.
+        \end{enumerate}
+        \item (\textbf{Reverse})
+        \begin{enumerate}
+            \item Use $\mathcal{L}^{-1}[e^{-cs}F(s)]=f(t-c)u(t-c)$. Firstly, use the term $e^{-cs}$ to find $c$.
+            \item Then do the \textbf{Inverse Laplace Transform} on every term of $F(s)$ to find $f(t)$.
+            \item Lastly, change $t$ to $t-c$ to form $f(t-c)$.
+        \end{enumerate} 
     \end{itemize}
     \item (\textbf{The method of partial fraction decomposition})
     \begin{itemize}
